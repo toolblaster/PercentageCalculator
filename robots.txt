@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://percentagecalculator.toolblaster.com/sitemap.xml
