@@ -23,6 +23,11 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 <link rel="manifest" href="favicon/site.webmanifest">
 
+<!-- FONTS: Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <!-- BRANDING: Updated Title -->
 <title>Percentage Calculator – Fast & Accurate | 6 Different calculations</title>
 <script type="application/ld+json">
@@ -65,7 +70,7 @@
           "name": "What is the percentage difference formula?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In this calculator, percentage difference is calculated by dividing the difference between two values by the second value (B) and multiplying by 100."
+            "text": "In this calculator, percentage difference is calculated by dividing the absolute difference between two values by their average ((A + B) / 2) and multiplying by 100."
           }
         },
         {
@@ -107,7 +112,7 @@
     --primary: #0369a1; /* Improved Contrast: Sky 700 (Passes AA on light bg) */
     --primary-bg: #e0f2fe;
     --radius: 6px;
-    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
     /* VISUAL ACCENTS: Harmonious cool tones for card distinction */
     --accent-1: #0369a1; /* Primary Sky */
@@ -600,7 +605,7 @@
       <h1>Percentage Calculator</h1>
     </div>
     <!-- New Description under H1 -->
-    <p class="header-desc">Free online tool to calculate percentages, changes, and differences instantly. Quick, accurate, and privacy-focused.</p>
+    <p class="header-desc">Calculate percentages instantly — fast, accurate & 6 Different calculations</p>
   </div>
 </header>
 
@@ -623,7 +628,7 @@
       <div class="formula-grid">
         <div class="formula-item">
           <h3>Find a Percentage of a Number</h3>
-          <p>Use this to find a specific portion of a total. It helps with calculating tips or sales tax.</p>
+          <p>Use this to find a specific portion of a total. For example, if you are buying a laptop for $1000 and the sales tax is 8%, this calculates the exact tax amount ($80).</p>
           <div class="formula-box">
             Formula: (Percentage ÷ 100) × Total Number<br>
             Example: 20% of 100<br>
@@ -632,7 +637,7 @@
         </div>
         <div class="formula-item">
           <h3>Find What Percentage X is of Y</h3>
-          <p>Use this to see what fraction one number represents of a larger whole.</p>
+          <p>Use this to see what fraction one number represents of a larger whole. For instance, if you scored 42 questions correct out of 50, this calculates your final grade percentage (84%).</p>
           <div class="formula-box">
             Formula: (Part ÷ Whole) × 100<br>
             Example: 10 is what % of 50?<br>
@@ -641,7 +646,7 @@
         </div>
         <div class="formula-item">
           <h3>Find the Total Given a Percentage</h3>
-          <p>Use this to calculate the original whole number when you only know a part and its percentage rate.</p>
+          <p>Use this to calculate the original whole number when you only know a part and its percentage rate. Useful if you know a $50 discount was 20% of the price and want to find the original cost.</p>
           <div class="formula-box">
             Formula: Part ÷ (Percentage ÷ 100)<br>
             Example: If 10 is 20%...<br>
@@ -650,7 +655,7 @@
         </div>
         <div class="formula-item">
           <h3>Calculate Percentage Increase</h3>
-          <p>Use this to measure how much a number has grown from its starting value.</p>
+          <p>Use this to measure how much a number has grown from its starting value. Great for calculating salary raises, rent increases, or investment growth over a year.</p>
           <div class="formula-box">
             Formula: ((New Value - Old Value) ÷ Old Value) × 100<br>
             Example: 100 to 150<br>
@@ -659,7 +664,7 @@
         </div>
         <div class="formula-item">
           <h3>Calculate Percentage Decrease</h3>
-          <p>Use this to measure how much a number has dropped from its starting value.</p>
+          <p>Use this to measure how much a number has dropped from its starting value. Perfect for figuring out the markdown percentage during a store sale or asset depreciation.</p>
           <div class="formula-box">
             Formula: ((Old Value - New Value) ÷ Old Value) × 100<br>
             Example: 100 to 75<br>
@@ -669,11 +674,11 @@
         <!-- REFINED: Updated description to match the "relative to B" logic -->
         <div class="formula-item">
           <h3>Calculate Percentage Difference</h3>
-          <p>In this tool, this is calculated by dividing the difference between two values by the second value (B).</p>
+          <p>In this tool, this is calculated by dividing the absolute difference between two values by their average. Use this when comparing two values where neither is the "standard" or "original".</p>
           <div class="formula-box">
-            Formula: ((Value A - Value B) ÷ Value B) × 100<br>
+            Formula: |A - B| ÷ ((A + B) / 2) × 100<br>
             Example: 50 (A) vs 40 (B)<br>
-            Calculation: ((50 - 40) ÷ 40) × 100 = 25%
+            Calculation: |50 - 40| ÷ ((50 + 40) / 2) × 100 = 22.2222%
           </div>
         </div>
       </div>
@@ -712,7 +717,7 @@
       <div class="faq-item">
         <h3>3. What is the percentage difference formula?</h3>
         <!-- REFINED: Updated answer to clarify "relative to second value" logic -->
-        <p>In this calculator, percentage difference is calculated by dividing the difference between two values by the second value (B) and multiplying by 100.</p>
+        <p>In this calculator, percentage difference is calculated by dividing the absolute difference between two values by their average ((A + B) / 2) and multiplying by 100.</p>
       </div>
       <!-- REFINED: Removed redundant "How do you calculate a percentage?" and renumbered -->
       <div class="faq-item">
@@ -735,6 +740,7 @@
       <button class="share-link" id="shareBtn">Share this tool</button>
       <!-- Added Navigation Links: Pointing to pages folder -->
       <div style="margin-top: 0.5rem;">
+        <a href="pages/percentage-guide.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">Formulas Guide</a>
         <a href="pages/about.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">About</a>
         <a href="pages/privacy.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">Privacy</a>
       </div>
@@ -788,10 +794,11 @@ const calcs = [
     title: "Percentage Difference", 
     a: "Value A", b: "Value B", pa: "80", pb: "100",
     fn: (a, b) => { 
-      if (b === 0 && a === 0) return "Both values are zero";
-      if (b === 0) return "Value B cannot be zero";
-      const r = ((a - b) / b * 100); 
-      return `A is ${formatNum(Math.abs(r))}% ${r >= 0 ? "greater" : "smaller"} than B`; 
+      if (a === 0 && b === 0) return "Both values are zero";
+      const avg = (a + b) / 2;
+      if (avg === 0) return "Cannot calculate percentage difference";
+      const r = (Math.abs(a - b) / avg) * 100;
+      return `The percentage difference between A and B is ${formatNum(r)}%`; 
     } 
   }
 ];
@@ -966,4 +973,3 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
 </script>
 </body>
 </html>
-
