@@ -37,8 +37,8 @@
     font-family: var(--font-sans); 
     background: var(--bg-body); 
     color: var(--text-main); 
-    line-height: 1.6; 
-    font-size: 15px; 
+    line-height: 1.5; 
+    font-size: 14px; /* SaaS Base */
     display: flex; 
     flex-direction: column; 
     min-height: 100vh; 
@@ -46,32 +46,94 @@
 
   .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
 
-  /* Header */
-  header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 1rem 0; margin-bottom: 2rem; }
-  .brand-wrapper { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
-  .brand-icon { width: 28px; height: 28px; color: var(--primary); background: var(--primary-bg); padding: 5px; border-radius: 6px; }
-  header h1 { font-size: 1.15rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em; margin: 0; }
-  .nav-link { font-size: 0.9rem; color: var(--text-muted); text-decoration: none; margin-left: auto; display: flex; align-items: center; gap: 0.25rem; }
+  /* Header - Compact */
+  header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 0.75rem 0; margin-bottom: 1.5rem; }
+  .brand-wrapper { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: inherit; }
+  .brand-icon { width: 24px; height: 24px; color: var(--primary); background: var(--primary-bg); padding: 4px; border-radius: 4px; }
+  header h1 { font-size: 1rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em; margin: 0; }
+  .nav-link { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; margin-left: auto; display: flex; align-items: center; gap: 0.25rem; }
   .nav-link:hover { color: var(--primary); }
 
-  /* Content */
-  main { flex: 1; padding-bottom: 3rem; }
-  h1.page-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-main); }
-  h2 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--text-main); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; display: inline-block; }
-  p { margin-bottom: 1rem; color: var(--text-muted); }
+  /* Content - Increased Compactness */
+  main { flex: 1; padding-bottom: 2rem; }
   
-  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
+  h1.page-title { 
+    font-size: 1.25rem; /* Reduced from 1.75rem */
+    font-weight: 700; 
+    margin-bottom: 0.75rem; 
+    color: var(--text-main); 
+  }
+  
+  h2 { 
+    font-size: 1rem; /* Reduced from 1.25rem */
+    font-weight: 600; 
+    margin-top: 1.5rem; 
+    margin-bottom: 0.6rem; 
+    color: var(--text-main); 
+    border-bottom: 2px solid #e2e8f0; 
+    padding-bottom: 0.3rem; 
+    display: inline-block; 
+  }
+  
+  p { margin-bottom: 0.75rem; color: var(--text-muted); font-size: 0.9rem; }
+  
+  /* Grid - Tighter */
+  .grid-2 { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 0.75rem; /* Reduced gap */
+    margin-top: 0.75rem; 
+  }
   @media (min-width: 640px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
   
-  .feature-box { background: #fff; padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); }
-  .feature-box h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary); }
-  .feature-box p { font-size: 0.9rem; margin-bottom: 0; }
+  .feature-box { 
+    background: #fff; 
+    padding: 1rem; /* Reduced padding */
+    border-radius: var(--radius); 
+    border: 1px solid var(--border); 
+  }
+  .feature-box h3 { 
+    font-size: 0.9rem; 
+    font-weight: 600; 
+    margin-bottom: 0.3rem; 
+    color: var(--primary); 
+  }
+  .feature-box p { 
+    font-size: 0.85rem; 
+    margin-bottom: 0; 
+    line-height: 1.4;
+  }
+  .feature-box ul {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    margin-bottom: 0;
+  }
+  .feature-box li {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-muted);
+  }
 
-  /* Footer */
-  footer { border-top: 1px solid var(--border); background: #fff; padding: 1rem 0; margin-top: auto; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
-  .footer-nav { margin-bottom: 1rem; }
-  .footer-nav a { margin: 0 0.5rem; color: var(--text-muted); text-decoration: none; }
+  /* Footer - Consistent Style */
+  footer { 
+    border-top: 1px solid var(--border); 
+    background: #fff; 
+    padding: 1.5rem 0; 
+    margin-top: auto; 
+    font-size: 0.8rem; 
+    color: var(--text-muted); 
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .footer-nav { margin-bottom: 0.5rem; display: flex; gap: 0.5rem; justify-content: center; }
+  .footer-nav a { color: var(--text-muted); text-decoration: none; }
   .footer-nav a:hover { color: var(--primary); text-decoration: underline; }
+  footer p.copyright { text-align: center; margin: 0; opacity: 0.8; font-size: 0.75rem; }
 </style>
 </head>
 <body>
@@ -121,19 +183,19 @@
     <div class="feature-box">
       <h3>1. Finding Values</h3>
       <p>For when you have known numbers and need to find a missing part.</p>
-      <ul style="padding-left: 1rem; margin-bottom: 0; margin-top: 1rem;">
-        <li style="margin-bottom: 0.5rem;"><strong>What is X% of Y?</strong><br>Standard tip or tax calculator.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>X is what % of Y?</strong><br>Understand proportions (e.g., scores).</li>
-        <li style="margin-bottom: 0;"><strong>Find Total:</strong><br>Reverse calculations (e.g., original price).</li>
+      <ul>
+        <li><strong>What is X% of Y?</strong> – Standard tip or tax calculator.</li>
+        <li><strong>X is what % of Y?</strong> – Understand proportions (e.g., scores).</li>
+        <li><strong>Find Total:</strong> – Reverse calculations (e.g., original price).</li>
       </ul>
     </div>
 
     <div class="feature-box">
       <h3>2. Calculating Change</h3>
       <p>For measuring movement between two numbers.</p>
-      <ul style="padding-left: 1rem; margin-bottom: 0; margin-top: 1rem;">
-        <li style="margin-bottom: 0.5rem;"><strong>% Increase / Decrease</strong><br>Track growth or loss over time.</li>
-        <li style="margin-bottom: 0;"><strong>% Difference</strong><br>Precise comparison relative to a specific value.</li>
+      <ul>
+        <li><strong>% Increase / Decrease</strong> – Track growth or loss over time.</li>
+        <li><strong>% Difference</strong> – Precise comparison relative to a specific value.</li>
       </ul>
     </div>
   </div>
@@ -142,14 +204,16 @@
 
 <footer>
   <div class="container">
-    <div class="footer-nav">
-      <!-- UPDATED: Clean root URL -->
-      <a href="/">Calculator</a>
-      <a href="percentage-guide.html">Formulas Guide</a>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
+    <div class="footer-links">
+      <div class="footer-nav">
+        <a href="/">Calculator</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <!-- Subtle footer knowledge link -->
+      <a href="percentage-guide.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8;">Learn percentage formulas & step-by-step explanations →</a>
     </div>
-    <p>&copy; 2026 percentagecalculator.<a href="https://toolblaster.com" style="color: inherit;">Toolblaster.com</a> &middot; Free online Percentage calculation tools</p>
+    <p class="copyright">&copy; 2026 percentagecalculator.<a href="https://toolblaster.com" style="color: inherit; text-decoration: underline;">Toolblaster.com</a> &middot; Free online Percentage calculation tools</p>
   </div>
 </footer>
 
