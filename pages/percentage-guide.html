@@ -18,67 +18,84 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- STRUCTURED DATA: FAQPage -->
+<!-- STRUCTURED DATA: FAQPage & BreadcrumbList -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How do I calculate a percentage?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To find a percentage of a number, convert the percentage to a decimal (divide by 100) and multiply it by the total number. Example: 20% of 50 is 0.20 × 50 = 10."
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://percentagecalculator.toolblaster.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Percentage Guide"
+      }]
     },
     {
-      "@type": "Question",
-      "name": "How do I calculate percentage increase?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Subtract the original value from the new value, divide the result by the original value, and multiply by 100."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is percentage difference?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Percentage difference compares two values where neither is the 'original'. It is calculated by dividing the absolute difference between the values by their average, then multiplying by 100."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is percent change?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Percent change measures the difference between a starting value and an ending value over time. It can be positive (increase) or negative (decrease)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How to reverse a percentage?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To find the total number given a part and its percentage, divide the part by the percentage decimal. For example, if 20 is 10% of the total, 20 ÷ 0.10 = 200."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are percentage points?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Percentage points represent the arithmetic difference between two percentages. If a rate goes from 4% to 5%, it increased by 1 percentage point (not 1%)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can percentage exceed 100%?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. If a value grows larger than its original size (e.g., doubling), the percentage increase is greater than 100%."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I calculate a percentage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To find a percentage of a number, convert the percentage to a decimal (divide by 100) and multiply it by the total number. Example: 20% of 50 is 0.20 × 50 = 10."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate percentage increase?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Subtract the original value from the new value, divide the result by the original value, and multiply by 100."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is percentage difference?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Percentage difference compares two values where neither is the 'original'. It is calculated by dividing the absolute difference between the values by their average, then multiplying by 100."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is percent change?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Percent change measures the difference between a starting value and an ending value over time. It can be positive (increase) or negative (decrease)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to reverse a percentage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To find the total number given a part and its percentage, divide the part by the percentage decimal. For example, if 20 is 10% of the total, 20 ÷ 0.10 = 200."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are percentage points?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Percentage points represent the arithmetic difference between two percentages. If a rate goes from 4% to 5%, it increased by 1 percentage point (not 1%)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can percentage exceed 100%?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If a value grows larger than its original size (e.g., doubling), the percentage increase is greater than 100%."
+          }
+        }
+      ]
     }
   ]
 }
@@ -279,6 +296,7 @@
     margin-top: 0.5rem;
     color: var(--primary);
     font-weight: 500;
+    text-align: center; /* ALIGNMENT: Added center alignment */
   }
   .inline-cta a { color: inherit; text-decoration: underline; }
 
@@ -320,10 +338,12 @@
 
 <div class="content-header">
   <div class="container">
+    <!-- Breadcrumb in Schema only, visually hidden via CSS/Structure separation (element removed from body) -->
     <h1 class="page-title">Learn Percentages – Complete Guide with Formulas & Examples</h1>
     <p class="intro-text">Master percentage math with formulas for increase, decrease, and difference. This guide provides step-by-step examples and shortcuts for fast calculations.</p>
     
     <div class="cta-top">
+      <!-- LINK 1: TOP CTA -->
       Need instant results? <a href="/">Use the Percentage Calculator &rarr;</a>
     </div>
   </div>
@@ -347,7 +367,7 @@
         </div>
         <div class="card-box" style="display:flex; flex-direction:column; justify-content:center;">
           <span class="step-label">Shortcut</span>
-          <p>Skip the math and <a href="/" class="internal-link">calculate percentages instantly</a> using our free calculator tool.</p>
+          <p>Skip the math and calculate percentages instantly using our free calculator tool.</p>
         </div>
       </div>
     </div>
@@ -377,7 +397,7 @@
   <section id="core-formulas">
     <div class="container">
       <h2>3. Core Percentage Formulas</h2>
-      <p>These are the three most common scenarios found in daily life and standard <a href="/" class="internal-link">percentage formula</a> questions.</p>
+      <p>These are the three most common scenarios found in daily life and standard percentage formula questions.</p>
 
       <div class="grid-2">
         <div class="card-box">
@@ -403,7 +423,7 @@
 
         <div class="card-box" style="background:#f8fafc; border-style:dashed;">
           <h3>Need Help?</h3>
-          <p>Use our <a href="/" class="internal-link">reverse percentage calculator</a> to solve these backwards problems instantly.</p>
+          <p>Use our reverse percentage calculator to solve these backwards problems instantly.</p>
         </div>
       </div>
     </div>
@@ -428,16 +448,13 @@
           <p>(20 ÷ 200) × 100 = <strong>10% Decrease</strong></p>
         </div>
       </div>
-      
-      <p class="inline-cta">
-        Analyze growth easily with our <a href="/">Percent Increase Calculator</a>.
-      </p>
     </div>
   </section>
 
   <!-- MID PAGE CTA -->
   <div class="container">
     <div class="cta-mid">
+      <!-- LINK 2: MIDDLE CTA -->
       <a href="/">Try these calculations instantly using our Percentage Calculator &rarr;</a>
     </div>
   </div>
@@ -445,7 +462,7 @@
   <section id="change-vs-diff">
     <div class="container">
       <h2>5. Percentage Change vs Percentage Difference</h2>
-      <p>Using the wrong formula here is a common error. <a href="/" class="internal-link">Percent change</a> implies a timeline (old to new). Difference compares two separate items.</p>
+      <p>Using the wrong formula here is a common error. Percent change implies a timeline (old to new). Difference compares two separate items.</p>
       
       <div class="grid-2">
         <div class="card-box">
@@ -547,7 +564,7 @@
         </div>
         <div class="card-box">
           <h3>Check with Calculator</h3>
-          <p>Use our <a href="/" class="internal-link">percentage math examples</a> tool to verify answers.</p>
+          <p>Use our percentage math examples tool to verify answers.</p>
         </div>
       </div>
     </div>
@@ -583,9 +600,6 @@
           <p>B sold <strong>50% more</strong> than A.</p>
         </div>
       </div>
-      <p class="inline-cta">
-        Solve any problem instantly with the <a href="/">Percentage Calculator</a>.
-      </p>
     </div>
   </section>
 
@@ -630,7 +644,7 @@
       <h2>12. Frequently Asked Questions</h2>
       
       <h3>1. How do I calculate a percentage?</h3>
-      <p>Convert the percentage to a decimal (divide by 100) and multiply by the total. Or use our <a href="/" class="internal-link">calculate percentage</a> tool.</p>
+      <p>Convert the percentage to a decimal (divide by 100) and multiply by the total. Or use our calculate percentage tool.</p>
 
       <h3>2. How do I calculate percentage increase?</h3>
       <p>Subtract the original from the new, divide by the original, and multiply by 100.</p>
@@ -646,18 +660,10 @@
 
       <h3>6. What is a percentage point?</h3>
       <p>It is the arithmetic difference between two percentages (e.g. 4% to 5% is 1 point).</p>
-      
-      <p style="margin-top: 1rem; font-weight: 500;">
-        Stop doing mental math. <a href="/" class="internal-link">Use our free tool for instant accuracy.</a>
-      </p>
     </div>
   </section>
 
 </main>
-
-<div class="container" style="padding: 1.5rem 1.5rem 0 1.5rem; text-align:center;">
-  <p style="font-size:0.95rem; margin-bottom:0;">Ready to solve your math problem? <a href="/" class="internal-link">Open Percentage Calculator</a> for instant results.</p>
-</div>
 
 <footer>
   <div class="container">
