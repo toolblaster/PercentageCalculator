@@ -23,10 +23,15 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 <link rel="manifest" href="favicon/site.webmanifest">
 
-<!-- FONTS: Inter -->
+<!-- FONTS: Inter (Optimized Loading) -->
+<!-- CLS FIX: Use preload and non-blocking swap to prevent layout shift -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</noscript>
 
 <!-- BRANDING: Updated Title -->
 <title>Percentage Calculator – Fast & Accurate | 6 Different calculations</title>
@@ -87,11 +92,23 @@
 }
 </script>
 <style>
+  /* CLS FIX: Global Defaults for Stability */
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
   :root {
     --bg-body: #eef2f7; /* UPDATED: Improved background contrast */
     --bg-card: #ffffff;
     --text-main: #1e293b;
-    --text-muted: #475569; /* Improved Contrast: Slate 600 (AAA compliant) */
+    --text-muted: #334155; /* OPTIMIZATION: Darkened to Slate 700 for WCAG AA compliance (was #475569) */
     --border: #cbd5e1; /* Improved Contrast: Slate 300 */
     --primary: #0369a1; /* Improved Contrast: Sky 700 (Passes AA on light bg) */
     --primary-bg: #e0f2fe;
@@ -155,9 +172,8 @@
        To enable ads: set display to 'flex' and uncomment height/margin below. */
     display: none; 
     
-    /* margin: 0.5rem auto; */
-    /* height: 100px; */
-    /* min-height: 100px; */
+    /* CLS FIX: Reserve space if triggered */
+    min-height: 100px;
     
     overflow: hidden; 
     background: transparent;
@@ -188,7 +204,7 @@
     padding: 0 1.5rem; 
   }
 
-  /* Updated Header Layout: Flex Row for Logo + Share */
+  /* Updated Header Layout: Flex Row for Logo */
   .header-top-row {
     display: flex;
     justify-content: space-between;
@@ -219,8 +235,8 @@
     line-height: 1.2;
   }
 
-  /* Header Share Button - UPDATED: Smaller & Optimized */
-  .header-share-btn {
+  /* Shared Button Style (Used in Footer) */
+  .share-btn {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -233,25 +249,26 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
-    height: 28px; /* Reduced height for desktop */
+    height: 28px; 
+    margin: 0 auto; /* Center in footer */
   }
-  .header-share-btn:hover {
+  .share-btn:hover {
     background-color: #f8fafc;
     color: var(--primary);
     border-color: var(--primary);
   }
-  .header-share-btn:active { transform: translateY(1px); }
-  .header-share-btn svg { width: 13px; height: 13px; }
+  .share-btn:active { transform: translateY(1px); }
+  .share-btn svg { width: 13px; height: 13px; }
 
   /* Mobile Specific Adjustments for Share Button */
   @media (max-width: 640px) {
-    .header-share-btn {
+    .share-btn {
         padding: 0 8px;
         height: 26px; /* Even smaller for mobile */
         font-size: 0.7rem;
         gap: 4px;
     }
-    .header-share-btn svg { width: 12px; height: 12px; }
+    .share-btn svg { width: 12px; height: 12px; }
     
     /* Slight adjustment to brand icon on mobile to match */
     .brand-icon { width: 26px; height: 26px; }
@@ -277,6 +294,8 @@
     display: grid; 
     grid-template-columns: 1fr; 
     gap: 0.75rem; /* OPTIMIZATION: Reduced gap */
+    /* LAYOUT FIX: Align items to start to prevent full-height stretching */
+    align-items: start; 
   }
   @media (min-width: 640px) { 
     .grid { grid-template-columns: 1fr 1fr; } 
@@ -304,6 +323,9 @@
 
     display: flex; 
     flex-direction: column; 
+    
+    /* LAYOUT FIX: Prevent card from stretching to grid row height */
+    height: fit-content;
   }
 
   /* Assign accents based on position */
@@ -355,12 +377,15 @@
     display: grid; 
     grid-template-columns: 1fr; 
     gap: 0.5rem; /* OPTIMIZATION: Reduced gap */
+    
+    /* LAYOUT FIX: Pack content to top to avoid vertical spreading */
+    align-content: start;
   }
   @media (min-width: 640px) {
     .card-body { 
         grid-template-columns: 1fr 1fr; 
     }
-    .result-wrapper, details.history { grid-column: 1 / -1; }
+    .result-wrapper, .try-example, details.history { grid-column: 1 / -1; }
   }
 
   /* Input Fields */
@@ -396,7 +421,7 @@
     border-color: var(--primary); 
     box-shadow: 0 0 0 2px rgba(3, 105, 161, 0.1); 
   }
-  .field input::placeholder { color: #64748b; /* Darker placeholder for accessibility */ }
+  .field input::placeholder { color: #475569; /* OPTIMIZATION: Darkened placeholder for visibility */ }
 
   /* Mobile Input Optimization: Prevent Zoom and increase touch target */
   @media (max-width: 640px) {
@@ -461,6 +486,32 @@
     .copy-btn { width: 44px; /* Larger touch target for mobile */ }
   }
 
+  /* Try Example Section - NEW FEATURE */
+  .try-example {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    font-size: 12px;
+    background: #f8fafc;
+    color: var(--text-muted);
+  }
+  .try-example button {
+    border: none;
+    background: none;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700; /* UPDATED from 500 to 700 for Bold */
+    padding: 0;
+  }
+  .try-example button:hover {
+    text-decoration: underline;
+  }
+
   /* History Section */
   details.history {
     font-size: 0.75rem; /* OPTIMIZATION: Smaller text */
@@ -514,16 +565,31 @@
     border-top: 1px solid var(--border); 
     margin-top: auto; 
     background: #fff;
+    /* CLS FIX: Prevent footer from collapsing/jumping before content loads */
+    min-height: 400px;
+    contain: content;
   }
-  footer .container { padding-top: 1.5rem; padding-bottom: 1.5rem; } /* OPTIMIZATION: Reduced footer padding */
+  /* Adjusted top padding to separate from content above */
+  footer .container { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+
+  /* NEW: Visually distinct bottom footer section */
+  .footer-bottom-section {
+    background-color: #f8fafc; /* Light slate accent background */
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    width: 100%;
+    margin-top: 0;
+  }
   
   /* UPDATED: Plain text trust bar */
   .trust-bar {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
     text-align: center;
-    font-weight: 500;
+    font-weight: 400;
+    opacity: 0.8;
   }
 
   /* NEW: Knowledge Strip Styles */
@@ -620,7 +686,7 @@
   /* About Section (Moved from Header) */
   .about-section {
     max-width: 900px;
-    margin: 2rem auto;
+    margin: 0 auto 2rem auto; /* Adjusted: Removed top margin as it's now first */
     padding: 1.5rem 1.5rem;
 
     background: #f8fafc;
@@ -732,17 +798,7 @@
         </svg>
         <h1>Percentage Calculator</h1>
       </div>
-      <!-- Moved Share Button -->
-      <button class="header-share-btn" id="shareBtn" aria-label="Share tool">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="18" cy="5" r="3"></circle>
-          <circle cx="6" cy="12" r="3"></circle>
-          <circle cx="18" cy="19" r="3"></circle>
-          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-        </svg>
-        <span>Share</span>
-      </button>
+      <!-- Share Button Moved to Footer -->
     </div>
     <!-- New Description under H1 -->
     <p class="header-desc">Calculate percentages instantly — fast and accurate</p>
@@ -757,11 +813,25 @@
 
 <footer>
   <div class="container">
-    <!-- Trust Signals -->
-    <div class="trust-bar">
-      No login required &middot; Works offline &middot; No data is stored or tracked
+    <!-- About Section (Moved to Top) -->
+    <div class="about-section">
+      <h2>Free Online Percentage Tools</h2>
+      <p class="instant-note">Results update instantly as you type — no calculate button required.</p>
+      <p>Designed for fast workflows on laptops and desktops, while remaining mobile-friendly.</p>
+      <p>Use this free online percentage calculator to instantly solve common math problems. Whether you need to determine percentage increases for analysis, calculate the <a href="pages/percentage-guide.html" class="seo-link">percentage difference</a> between two numbers, or figure out what percentage X is of Y, this tool delivers accurate results in real-time. Your inputs and recent calculations are saved locally in your browser for convenience.</p>
+      
+      <!-- Feature List -->
+      <p class="feature-title">This calculator includes:</p>
+      <ul class="feature-list">
+        <li>Percentage of a number</li>
+        <li>Percentage from total</li>
+        <li>Reverse percentage</li>
+        <li>Percentage increase</li>
+        <li>Percentage decrease</li>
+        <li>Percentage difference</li>
+      </ul>
     </div>
-    
+
     <!-- NEW: Knowledge Strip -->
     <section class="knowledge-strip">
       <h2>Want to understand how percentage calculations work?</h2>
@@ -836,25 +906,6 @@
       </div>
     </div>
 
-    <!-- About Section -->
-    <div class="about-section">
-      <h2>Free Online Percentage Tools</h2>
-      <p class="instant-note">Results update instantly as you type — no calculate button required.</p>
-      <p>Designed for fast workflows on laptops and desktops, while remaining mobile-friendly.</p>
-      <p>Use this free online percentage calculator to instantly solve common math problems. Whether you need to determine percentage increases for analysis, calculate the <a href="pages/percentage-guide.html" class="seo-link">percentage difference</a> between two numbers, or figure out what percentage X is of Y, this tool delivers accurate results in real-time. Your inputs and recent calculations are saved locally in your browser for convenience.</p>
-      
-      <!-- Feature List -->
-      <p class="feature-title">This calculator includes:</p>
-      <ul class="feature-list">
-        <li>Percentage of a number</li>
-        <li>Percentage from total</li>
-        <li>Reverse percentage</li>
-        <li>Percentage increase</li>
-        <li>Percentage decrease</li>
-        <li>Percentage difference</li>
-      </ul>
-    </div>
-
     <!-- SEO FAQ -->
     <div class="faq-section">
       <h2>Frequently Asked Questions</h2>
@@ -876,21 +927,46 @@
         <p>Yes. This tool is completely free and runs entirely in your browser.</p>
       </div>
     </div>
+  </div><!-- End Main Footer Content Container -->
 
-    <!-- Share & Affiliate -->
-    <div class="footer-links">
-      <!-- Added Navigation Links: Pointing to pages folder -->
-      <div style="margin-top: 0.5rem;">
-        <a href="pages/about.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">About</a>
-        <a href="pages/privacy.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">Privacy</a>
-      </div>
-      
-      <!-- New subtle footer knowledge link -->
-      <a href="pages/percentage-guide.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8;">Learn percentage formulas & step-by-step explanations →</a>
+  <!-- NEW: Visually Distinct Bottom Footer Area -->
+  <div class="footer-bottom-section">
+    <div class="container">
+        <!-- Share & Affiliate -->
+        <div class="footer-links">
+          <!-- Added Navigation Links: Pointing to pages folder -->
+          <div style="margin-top: 0.5rem;">
+            <a href="pages/about.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">About</a>
+            <a href="pages/privacy.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">Privacy</a>
+          </div>
+          
+          <!-- New subtle footer knowledge link -->
+          <a href="pages/percentage-guide.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8;">Learn percentage formulas & step-by-step explanations →</a>
+        </div>
+
+        <!-- BRANDING: Updated Footer Copyright with clickable brand link -->
+        <p class="copyright">&copy; 2026 percentagecalculator.<a href="https://toolblaster.com" style="color: inherit; text-decoration: underline;">Toolblaster.com</a> &middot; Free online Percentage calculation tools</p>
+        
+        <!-- Footer End Actions -->
+        <div class="footer-end-actions" style="margin-top: 1.5rem; text-align: center;">
+          <!-- Trust Signals -->
+          <div class="trust-bar">
+            No login required &middot; Works offline &middot; No data is stored or tracked
+          </div>
+          
+          <!-- Share Button -->
+          <button class="share-btn" id="shareBtn" aria-label="Share tool">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span>Share</span>
+          </button>
+        </div>
     </div>
-
-    <!-- BRANDING: Updated Footer Copyright with clickable brand link -->
-    <p class="copyright">&copy; 2026 percentagecalculator.<a href="https://toolblaster.com" style="color: inherit; text-decoration: underline;">Toolblaster.com</a> &middot; Free online Percentage calculation tools</p>
   </div>
 </footer>
 
@@ -978,6 +1054,13 @@ calcs.forEach((c, index) => {
         <div class="result empty" aria-live="polite">Result: —</div>
         <button class="copy-btn" aria-label="Copy result" title="Copy to clipboard">${copySvg}</button>
       </div>
+      
+      <!-- NEW: Try Example Section -->
+      <div class="try-example">
+        <span>Ex: ${c.pa} & ${c.pb}</span>
+        <button class="try-btn" aria-label="Try example values">Try Example</button>
+      </div>
+
       <details class="history">
         <summary>History</summary>
         <ul class="history-list"></ul>
@@ -990,6 +1073,7 @@ calcs.forEach((c, index) => {
   const copyBtn = card.querySelector('.copy-btn');
   const histList = card.querySelector('.history-list');
   const details = card.querySelector('details');
+  const tryBtn = card.querySelector('.try-btn');
 
   const loadState = () => {
     const savedA = localStorage.getItem(`${STORE_KEY}${index}_a`);
@@ -1081,6 +1165,13 @@ calcs.forEach((c, index) => {
         copyBtn.style.color = '';
       }, 1500);
     });
+  });
+
+  // NEW: Try Example Button Logic
+  tryBtn.addEventListener('click', () => {
+    inA.value = c.pa;
+    inB.value = c.pb;
+    update(true); // Trigger update AND save to history
   });
   
   loadState();
