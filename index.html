@@ -33,8 +33,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 </noscript>
 
-<!-- BRANDING: Updated Title -->
-<title>Percentage Calculator – Fast & Accurate | 6 Different calculations</title>
+<!-- TASK 2: Improve Title Tag -->
+<title>Percentage Calculator (6 Tools) – Increase, Decrease, Difference & More</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -105,23 +105,34 @@
   }
 
   :root {
-    --bg-body: #eef2f7; /* UPDATED: Improved background contrast */
-    --bg-card: #ffffff;
-    --text-main: #1e293b;
-    --text-muted: #334155; /* OPTIMIZATION: Darkened to Slate 700 for WCAG AA compliance (was #475569) */
-    --border: #cbd5e1; /* Improved Contrast: Slate 300 */
-    --primary: #0369a1; /* Improved Contrast: Sky 700 (Passes AA on light bg) */
-    --primary-bg: #e0f2fe;
-    --radius: 12px; /* UPDATED: Modern rounded corners */
+    --bg-body: #f8fafc; /* Lighter, cleaner slate background */
+    --bg-card: rgba(255, 255, 255, 0.9); /* Glassy card bg */
+    --text-main: #0f172a; /* Slate 900 - Darker, sharper text */
+    --text-muted: #334155; /* Slate 700 - WCAG Compliant (4.5:1+ against #f8fafc) */
+    --border: #cbd5e1; /* Slate 300 - Slightly darker border for better visibility */
+    
+    /* MODERN SAAS PURPLE/INDIGO THEME - HIGH CONTRAST */
+    --primary: #4338ca; /* Indigo 700 - Darker for better contrast against light bg */
+    --primary-hover: #3730a3; /* Indigo 800 */
+    --primary-bg: #e0e7ff; /* Indigo 100 - Slightly darker bg for better contrast with text */
+    --primary-light: #6366f1; /* Indigo 500 */
+    
+    --radius: 12px; /* Slightly reduced radius for tighter look */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-    /* VISUAL ACCENTS: Harmonious cool tones for card distinction */
-    --accent-1: #0369a1; /* Primary Sky */
-    --accent-2: #0e7490; /* Cyan */
-    --accent-3: #4338ca; /* Indigo */
-    --accent-4: #0f766e; /* Teal */
-    --accent-5: #1d4ed8; /* Blue */
-    --accent-6: #475569; /* Slate */
+    /* VISUAL ACCENTS: More vibrant, unified palette - High Contrast Versions */
+    --accent-1: #4338ca; /* Indigo 700 */
+    --accent-2: #0369a1; /* Sky 700 */
+    --accent-3: #7c3aed; /* Violet 600 */
+    --accent-4: #059669; /* Emerald 600 */
+    --accent-5: #d97706; /* Amber 600 */
+    --accent-6: #db2777; /* Pink 600 */
+    
+    /* SHADOWS */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 20px rgba(67, 56, 202, 0.15);
   }
   
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -129,9 +140,14 @@
   body { 
     font-family: var(--font-sans); 
     background: var(--bg-body); 
+    /* Subtle mesh gradient background */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(67, 56, 202, 0.03) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(3, 105, 161, 0.03) 0px, transparent 50%);
+    background-attachment: fixed;
     color: var(--text-main); 
-    line-height: 1.5; 
-    font-size: 14px;
+    line-height: 1.4; /* Tighter line height */
+    font-size: 13px; /* Slightly smaller base font */
     display: flex; 
     flex-direction: column; 
     min-height: 100vh; 
@@ -139,16 +155,17 @@
 
   /* Breadcrumbs */
   .breadcrumb {
-    font-size: 0.85rem;
+    font-size: 0.75rem; /* Smaller font */
     color: var(--text-muted);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem; /* Reduced margin */
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   .breadcrumb a {
     color: var(--text-muted);
     text-decoration: none;
+    transition: color 0.2s;
   }
   .breadcrumb a:hover {
     color: var(--primary);
@@ -159,7 +176,7 @@
     font-weight: 500;
   }
   .breadcrumb .separator {
-    color: #94a3b8;
+    color: #64748b; /* Slate 500 - Visible separator */
     font-size: 0.8em;
   }
 
@@ -167,41 +184,38 @@
   .ad-slot {
     width: 100%;
     max-width: 1140px;
-    
-    /* LOCKED: Ad Space Reserved but Hidden. 
-       To enable ads: set display to 'flex' and uncomment height/margin below. */
     display: none; 
-    
-    /* CLS FIX: Reserve space if triggered */
-    min-height: 100px;
-    
+    min-height: 80px; /* Reduced min-height */
     overflow: hidden; 
     background: transparent;
     border: none;
     border-radius: var(--radius);
     align-items: center;
     justify-content: center;
-    color: var(--text-muted); /* Ensure readable fallback text */
+    color: var(--text-muted); 
     font-size: 0.8rem;
   }
   .ad-slot.top { margin-bottom: 0; }
-  .ad-slot.bottom { margin-top: 1rem; }
+  .ad-slot.bottom { margin-top: 0.5rem; }
 
-  /* Hero / Header Section */
+  /* TASK 0: Make Header Static */
   header { 
-    background: #ffffff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 0.5rem 0;
-    margin-bottom: 0.75rem;
+    background: rgba(255, 255, 255, 0.95); /* More opaque for contrast */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Slightly darker border */
+    padding: 0.5rem 0; /* Minimized padding */
+    margin-bottom: 0.75rem; /* Reduced margin */
     margin-top: 0;
-
-    box-shadow:
-      0 2px 6px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-sm);
+    /* Removed sticky and top:0 */
+    position: relative;
+    z-index: 1;
   }
   .container { 
     max-width: 1140px; 
     margin: 0 auto; 
-    padding: 0 1.5rem; 
+    padding: 0 1rem; /* Reduced padding */
   }
 
   /* Updated Header Layout: Flex Row for Logo */
@@ -209,92 +223,64 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
   }
   
   /* Logo + H1 Combined */
   .brand-wrapper {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.6rem;
   }
   .brand-icon {
-    width: 28px; /* OPTIMIZATION: Slightly smaller icon */
-    height: 28px;
-    color: var(--primary);
-    background: var(--primary-bg);
+    width: 26px; /* Smaller icon */
+    height: 26px;
+    color: white;
+    /* Gradient Brand Icon - Higher contrast start/end */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     padding: 5px;
     border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(67, 56, 202, 0.25);
   }
   header h1 { 
-    font-size: 1.15rem; /* OPTIMIZATION: Slightly reduced font size */
-    font-weight: 700; 
-    color: var(--text-main);
-    letter-spacing: -0.01em;
+    font-size: 1.1rem; /* Smaller title */
+    font-weight: 800; 
+    letter-spacing: -0.02em;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.1;
+    /* Gradient Text - Darker colors */
+    background: linear-gradient(to right, var(--text-main), #334155);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Shared Button Style (Used in Footer) */
-  .share-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background-color: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    padding: 0 10px;
-    border-radius: 6px;
-    font-size: 0.75rem; /* Smaller font */
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    height: 28px; 
-    margin: 0 auto; /* Center in footer */
-  }
-  .share-btn:hover {
-    background-color: #f8fafc;
-    color: var(--primary);
-    border-color: var(--primary);
-  }
-  .share-btn:active { transform: translateY(1px); }
-  .share-btn svg { width: 13px; height: 13px; }
-
-  /* Mobile Specific Adjustments for Share Button */
-  @media (max-width: 640px) {
-    .share-btn {
-        padding: 0 8px;
-        height: 26px; /* Even smaller for mobile */
-        font-size: 0.7rem;
-        gap: 4px;
-    }
-    .share-btn svg { width: 12px; height: 12px; }
-    
-    /* Slight adjustment to brand icon on mobile to match */
-    .brand-icon { width: 26px; height: 26px; }
-    header h1 { font-size: 1.05rem; }
-    
-    /* Mobile Container Optimization */
-    .container { padding: 0 1rem; }
-  }
-  
   /* Description under H1 */
   .header-desc {
-    font-size: 0.85rem; /* OPTIMIZATION: Slightly reduced font size */
+    font-size: 0.8rem; /* Smaller desc */
     color: var(--text-muted);
-    max-width: 700px; /* Allow slightly wider text to reduce wrapping */
+    max-width: 700px; 
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.3;
+    font-weight: 500; /* Increased weight */
   }
 
-  main { padding-bottom: 1rem; flex: 1; } /* OPTIMIZATION: Reduced padding */
+  main { padding-bottom: 1.5rem; flex: 1; }
+
+  /* TASK 1: CSS for H2 Heading */
+  .tools-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+  }
 
   /* Grid Layout */
   .grid { 
     display: grid; 
     grid-template-columns: 1fr; 
-    gap: 0.75rem; /* OPTIMIZATION: Reduced gap */
-    /* LAYOUT FIX: Align items to start to prevent full-height stretching */
+    gap: 0.75rem; /* Tighter gap */
+    min-height: 480px; /* Reduced reserved height */
     align-items: start; 
   }
   @media (min-width: 640px) { 
@@ -304,30 +290,29 @@
     .grid { grid-template-columns: repeat(3, 1fr); } 
   }
 
-  /* Card Component */
+  /* Card Component - COMPACT & PREMIUM */
   .card { 
-    background: linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #ffffff 85%,
-      #f8fafc 100%
-    );
+    /* Glassmorphism background */
+    background: var(--bg-card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-top: 3px solid var(--card-accent, var(--primary));
+    /* Subtle border - Darker for visibility */
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    /* Top accent border is removed in favor of internal accents or left as subtle indicator */
+    border-top: 3px solid var(--card-accent, var(--primary)); 
     border-radius: var(--radius);
 
-    box-shadow:
-      0 2px 6px rgba(0, 0, 0, 0.04),
-      0 12px 24px rgba(0, 0, 0, 0.06);
+    /* Deep Shadow */
+    box-shadow: var(--shadow-md);
 
     display: flex; 
     flex-direction: column; 
-    
-    /* LAYOUT FIX: Prevent card from stretching to grid row height */
     height: fit-content;
+    
+    /* Removed hover transition */
   }
-
+  
   /* Assign accents based on position */
   .card:nth-child(1) { --card-accent: var(--accent-1); }
   .card:nth-child(2) { --card-accent: var(--accent-2); }
@@ -340,25 +325,25 @@
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    padding: 0.5rem 0.75rem; /* OPTIMIZATION: Reduced padding */
-    border-bottom: 1px solid #e2e8f0; /* Slightly darker border for separation */
-    /* UPDATED BACKGROUND: Darker slate for higher contrast against white body */
-    background: #f1f5f9; 
+    padding: 0.6rem 0.85rem; /* Minimized padding */
+    border-bottom: 1px solid var(--border);
+    background: rgba(241, 245, 249, 0.7); /* Slightly darker header bg */
     border-top-left-radius: var(--radius);
     border-top-right-radius: var(--radius);
   }
   .card-header h2 { 
-    font-size: 0.85rem; /* OPTIMIZATION: Smaller heading */
-    font-weight: 600; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
     color: var(--text-main);
     margin: 0;
+    letter-spacing: -0.01em;
   }
   
   .reset-btn { 
     background: transparent; 
     border: none; 
     cursor: pointer; 
-    color: var(--text-muted); 
+    color: #64748b; /* Darker grey */
     padding: 4px; 
     border-radius: 4px; 
     display: flex; 
@@ -369,16 +354,14 @@
     color: var(--text-main); 
     background: #e2e8f0; 
   }
-  .reset-btn svg { width: 14px; height: 14px; }
+  .reset-btn svg { width: 13px; height: 13px; }
 
   /* Card Body */
   .card-body { 
-    padding: 0.75rem; /* OPTIMIZATION: Reduced padding */
+    padding: 0.85rem; /* Minimized padding */
     display: grid; 
     grid-template-columns: 1fr; 
-    gap: 0.5rem; /* OPTIMIZATION: Reduced gap */
-    
-    /* LAYOUT FIX: Pack content to top to avoid vertical spreading */
+    gap: 0.5rem; /* Tighter gap */
     align-content: start;
   }
   @media (min-width: 640px) {
@@ -391,26 +374,29 @@
   /* Input Fields */
   .field label { 
     display: block; 
-    font-size: 11px; /* OPTIMIZATION: Smaller label */
-    color: var(--text-muted); 
-    margin-bottom: 0.15rem; /* OPTIMIZATION: Tighter spacing */
-    font-weight: 500;
+    font-size: 0.7rem; /* Smaller labels */
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted); /* Using darker muted color */
+    margin-bottom: 0.2rem; 
+    font-weight: 700; /* Increased weight for legibility */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .field input { 
     width: 100%; 
-    height: 30px; /* OPTIMIZATION: Reduced height from 34px */
+    height: 32px; /* Very compact inputs */
     padding: 0 0.5rem; 
     border: 1px solid var(--border); 
-    border-radius: 4px; 
-    font-size: 13px; /* OPTIMIZATION: readable but compact */
+    border-radius: 6px; 
+    font-size: 0.85rem; 
     background: #fff; 
     outline: none; 
     transition: border-color 0.15s, box-shadow 0.15s;
     -moz-appearance: textfield;
     color: var(--text-main);
+    font-weight: 500;
   }
   .field input::-webkit-outer-spin-button,
   .field input::-webkit-inner-spin-button {
@@ -419,15 +405,15 @@
   }
   .field input:focus { 
     border-color: var(--primary); 
-    box-shadow: 0 0 0 2px rgba(3, 105, 161, 0.1); 
+    box-shadow: 0 0 0 2px rgba(67, 56, 202, 0.15); /* Slightly smaller shadow */
   }
-  .field input::placeholder { color: #475569; /* OPTIMIZATION: Darkened placeholder for visibility */ }
+  .field input::placeholder { color: #475569; /* Slate 600 - High contrast placeholder */ opacity: 1; }
 
-  /* Mobile Input Optimization: Prevent Zoom and increase touch target */
+  /* Mobile Input Optimization - Keep usable size */
   @media (max-width: 640px) {
     .field input {
-      height: 44px; /* Minimum touch target height */
-      font-size: 16px; /* Prevents auto-zoom on iOS */
+      height: 40px; 
+      font-size: 16px; 
     }
   }
 
@@ -436,54 +422,84 @@
     display: flex;
     gap: 0.5rem;
     align-items: stretch;
-    margin-top: 0.15rem; /* OPTIMIZATION: Tighter spacing */
+    margin-top: 0.25rem;
   }
 
   .result { 
     flex: 1;
-    padding: 0.25rem 0.5rem; /* OPTIMIZATION: Reduced padding */
-    border-radius: 4px; 
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px; 
     text-align: center; 
-    font-size: 0.85rem; /* OPTIMIZATION: Consistent font size */
-    font-weight: 600; 
-    min-height: 32px; /* OPTIMIZATION: Reduced min-height */
+    font-size: 0.9rem; 
+    font-weight: 700; 
+    min-height: 32px; /* Compact result */
     display: flex;
     align-items: center;
     justify-content: center;
     word-break: break-word;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    
+    /* Default empty state */
+    background: #f1f5f9; 
+    color: var(--text-muted); 
+    border: 1px dashed var(--border);
   }
-  .result.empty { background: #f1f5f9; color: var(--text-muted); font-weight: 400; }
-  .result.filled { background: var(--primary-bg); color: var(--primary); }
+  
+  .result.filled { 
+    background: var(--primary-bg); 
+    color: var(--primary); 
+    border: 1px solid rgba(67, 56, 202, 0.2);
+  }
   
   @media (max-width: 640px) {
-    .result { min-height: 44px; } /* Match input height on mobile */
+    .result { min-height: 40px; } 
   }
 
   @keyframes highlight-pulse {
-    0% { background-color: #bae6fd; }
-    100% { background-color: var(--primary-bg); }
+    0% { background-color: #c7d2fe; transform: scale(1.02); }
+    100% { background-color: var(--primary-bg); transform: scale(1); }
   }
-  .result.updated { animation: highlight-pulse 0.4s ease-out; }
+  .result.updated { animation: highlight-pulse 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
 
   .copy-btn {
-    width: 32px; /* OPTIMIZATION: Slightly smaller button */
+    width: 32px; 
     display: flex;
     align-items: center;
     justify-content: center;
     background: #fff;
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     color: var(--text-muted);
     transition: all 0.2s;
   }
-  .copy-btn:hover { background: #f8fafc; color: var(--primary); border-color: var(--primary); }
+  .copy-btn:hover { 
+    background: #f8fafc; 
+    color: var(--primary); 
+    border-color: var(--primary); 
+  }
   .copy-btn:active { transform: translateY(1px); }
-  .copy-btn svg { width: 16px; height: 16px; }
+  .copy-btn svg { width: 14px; height: 14px; }
   
   @media (max-width: 640px) {
-    .copy-btn { width: 44px; /* Larger touch target for mobile */ }
+    .copy-btn { width: 40px; }
+  }
+
+  /* TASK 4: CSS for "Copy Number Only" Button */
+  .copy-number-btn {
+    width: 32px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+  .copy-number-btn:hover {
+    color: var(--primary);
+    border-color: var(--primary);
   }
 
   /* Try Example Section - NEW FEATURE */
@@ -492,21 +508,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 8px;
+    padding: 4px 8px; /* Tighter padding */
     border: 1px dashed var(--border);
     border-radius: 6px;
-    font-size: 12px;
-    background: #f8fafc;
+    font-size: 0.7rem;
+    background: rgba(248, 250, 252, 0.9);
     color: var(--text-muted);
+    margin-top: 0.15rem;
   }
   .try-example button {
     border: none;
     background: none;
     color: var(--primary);
     cursor: pointer;
-    font-size: 12px;
-    font-weight: 700; /* UPDATED from 500 to 700 for Bold */
-    padding: 0;
+    font-size: 0.7rem;
+    font-weight: 700; /* Bold for readability */
+    padding: 2px 4px;
+    border-radius: 4px;
   }
   .try-example button:hover {
     text-decoration: underline;
@@ -514,32 +532,34 @@
 
   /* History Section */
   details.history {
-    font-size: 0.75rem; /* OPTIMIZATION: Smaller text */
+    font-size: 0.7rem; 
     color: var(--text-muted);
-    border-top: 1px solid #f1f5f9;
-    padding-top: 0.25rem; /* OPTIMIZATION: Reduced padding */
+    border-top: 1px solid var(--border);
+    padding-top: 0.35rem; 
+    margin-top: 0.15rem;
   }
   summary {
     cursor: pointer;
     list-style: none;
-    font-weight: 500;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 0.15rem;
+    gap: 0.2rem;
     user-select: none;
     color: var(--text-muted);
+    transition: color 0.2s;
   }
-  summary:hover { color: var(--text-main); }
+  summary:hover { color: var(--primary); }
   summary::-webkit-details-marker { display: none; }
   summary::before {
     content: '';
     display: inline-block;
     width: 0; 
     height: 0; 
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    border-left: 5px solid currentColor;
-    margin-right: 4px;
+    border-top: 3px solid transparent; /* Smaller arrow */
+    border-bottom: 3px solid transparent;
+    border-left: 4px solid currentColor;
+    margin-right: 3px;
     transition: transform 0.2s;
   }
   details[open] summary::before { transform: rotate(90deg); }
@@ -547,18 +567,25 @@
   .history-list {
     list-style: none;
     padding-top: 0.25rem;
-    animation: fadeIn 0.2s ease-in;
+    /* Removed animation fadeIn */
   }
   .history-list li {
-    padding: 0.15rem 0; /* OPTIMIZATION: Tighter items */
-    border-bottom: 1px dashed #f1f5f9;
+    padding: 0.2rem 0; 
+    border-bottom: 1px dashed var(--border);
     display: flex;
     justify-content: space-between;
   }
   .history-list li:last-child { border-bottom: none; }
-  .history-val { color: var(--text-main); font-family: monospace; }
+  .history-val { 
+    color: var(--text-main); 
+    font-family: monospace; 
+    font-weight: 500; 
+    background: rgba(0,0,0,0.03);
+    padding: 0 4px;
+    border-radius: 4px;
+  }
   
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  /* Removed @keyframes fadeIn */
 
   /* V3: Footer, Trust Signals & FAQ */
   footer { 
@@ -572,75 +599,85 @@
   /* Adjusted top padding to separate from content above */
   footer .container { padding-top: 1.5rem; padding-bottom: 1.5rem; }
 
-  /* NEW: Visually distinct bottom footer section */
+  /* Footer Bottom Section */
   .footer-bottom-section {
-    background-color: #f8fafc; /* Light slate accent background */
+    background-color: #f8fafc; 
     border-top: 1px solid var(--border);
-    padding: 2rem 0;
+    padding: 1.5rem 0; /* Reduced padding */
     width: 100%;
     margin-top: 0;
   }
   
   /* UPDATED: Plain text trust bar */
   .trust-bar {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     margin-top: 1rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     text-align: center;
-    font-weight: 400;
-    opacity: 0.8;
+    font-weight: 500;
+    opacity: 0.9;
   }
 
-  /* NEW: Knowledge Strip Styles */
+  /* Knowledge Strip Styles */
   .knowledge-strip {
     padding: 1.5rem 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    background-color: #fafafa;
-    margin-bottom: 2.5rem;
+    background: linear-gradient(to right, #f8fafc, #f1f5f9, #f8fafc);
+    margin-bottom: 2rem;
     text-align: center;
   }
   .knowledge-strip h2 {
-    font-size: 1rem; /* Match Homepage H2 scale */
-    font-weight: 600;
+    font-size: 1rem; 
+    font-weight: 700;
     color: var(--text-main);
     margin-bottom: 0.5rem;
   }
   .knowledge-strip p {
-    font-size: 13.6px; /* UPDATED: Specific pixel size */
+    font-size: 0.85rem;
     color: var(--text-muted);
     margin-bottom: 0.75rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.5;
   }
   .text-link {
     color: var(--primary);
     text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding-bottom: 1px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
   }
-  .text-link:hover { text-decoration: underline; }
+  .text-link:hover { text-decoration: none; border-bottom-color: var(--primary-light); }
   
   /* Internal links styling in SEO text */
-  .seo-link { color: var(--text-muted); text-decoration: underline; text-decoration-color: var(--border); }
-  .seo-link:hover { color: var(--primary); text-decoration-color: var(--primary); }
+  .seo-link { 
+    color: var(--text-main); 
+    text-decoration: underline; 
+    text-decoration-color: var(--primary-light); 
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
+  .seo-link:hover { color: var(--primary); background: var(--primary-bg); }
 
   /* Educational Formulas Section */
   .formulas-section {
     margin: 1.5rem auto;
-    padding: 1.25rem 1.25rem;
+    padding: 1.25rem;
     max-width: 1000px;
-
-    background: #f8fafc;
+    background: #fff;
     border-radius: 12px;
-    border: 1px solid rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
   }
   .formulas-section h2 {
     text-align: center;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-main);
     margin-bottom: 1rem;
   }
@@ -653,73 +690,76 @@
     .formula-grid { grid-template-columns: 1fr 1fr; }
   }
   .formula-item {
-    background: #ffffff;
-    padding: 0.9rem 1rem;
-    border-radius: 8px;
-    border: 1px solid rgba(0,0,0,0.05);
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: transform 0.2s;
+  }
+  .formula-item:hover {
+    background: #fff;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
   }
   .formula-item h3 {
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--primary);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.35rem;
   }
   .formula-item p {
-    font-size: 13px;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
     line-height: 1.4;
   }
   .formula-box {
-    background: #f1f5f9;
-    padding: 0.5rem 0.6rem;
+    background: #fff;
+    padding: 0.5rem;
     border-radius: 6px;
-    border: 1px solid rgba(0,0,0,0.05);
-    margin-top: 0.4rem;
-    font-size: 13px;
-    line-height: 1.4;
+    border: 1px solid var(--border);
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
     color: var(--text-main);
     font-family: monospace;
     display: block;
   }
 
-  /* About Section (Moved from Header) */
+  /* About Section */
   .about-section {
     max-width: 900px;
-    margin: 0 auto 2rem auto; /* Adjusted: Removed top margin as it's now first */
-    padding: 1.5rem 1.5rem;
-
-    background: #f8fafc;
+    margin: 0 auto 2rem auto; 
+    padding: 1.5rem;
+    background: #fff;
     border-radius: 12px;
-    border: 1px solid rgba(0,0,0,0.04);
-
+    border: 1px solid var(--border);
     text-align: center;
+    box-shadow: var(--shadow-sm);
   }
   .about-section h2 {
-    font-size: 1.15rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 800;
     color: var(--text-main);
     margin-bottom: 0.5rem; 
   }
   .about-section p {
-    font-size: 13.5px;
+    font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.5;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.75rem;
   }
   
-  /* Feature Highlight Text */
   .instant-note {
-    font-weight: 500;
+    font-weight: 600;
     color: var(--primary);
     font-size: 0.9rem;
     margin-bottom: 0.75rem;
     display: block;
   }
   
-  /* Feature List (Plain text style) */
   .feature-title {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-main);
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -728,7 +768,7 @@
   .feature-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.25rem 0.75rem;
+    gap: 0.35rem 0.75rem;
     text-align: left;
     max-width: 420px;
     margin: 0 auto;
@@ -740,13 +780,13 @@
   .feature-list li {
     display: flex;
     align-items: center;
-    padding: 0.1rem 0;
+    padding: 0.15rem 0;
   }
   .feature-list li::before {
     content: "•";
-    color: var(--text-muted);
+    color: var(--primary);
     margin-right: 0.5rem;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1;
   }
   @media (min-width: 640px) {
@@ -755,16 +795,44 @@
 
   .faq-section {
     margin-bottom: 2rem;
-    max-width: 900px; /* UPDATED: SEO Width */
+    max-width: 900px; 
     margin-left: auto;
     margin-right: auto;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--border);
     padding-top: 2rem;
   }
-  .faq-section h2 { font-size: 1rem; color: var(--text-main); margin-bottom: 1rem; padding-bottom: 0.5rem; }
-  .faq-item { margin-bottom: 1.25rem; }
-  .faq-item h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem; }
-  .faq-item p { font-size: 13.6px; /* UPDATED: Specific pixel size */ color: var(--text-muted); margin: 0; }
+  .faq-section h2 { font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; padding-bottom: 0.5rem; }
+  .faq-item { margin-bottom: 1rem; }
+  .faq-item h3 { font-size: 0.9rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem; }
+  .faq-item p { font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin: 0; }
+
+  /* Shared Button Style (Used in Footer) */
+  .share-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 0 14px; /* Reduced padding */
+    border-radius: 20px; /* Pill shape */
+    font-size: 0.75rem; 
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 32px; /* Reduced height */
+    margin: 0 auto;
+    box-shadow: var(--shadow-sm);
+  }
+  .share-btn:hover {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(67, 56, 202, 0.25);
+  }
+  .share-btn:active { transform: translateY(0); }
+  .share-btn svg { width: 13px; height: 13px; }
 
   .footer-links {
     display: flex;
@@ -807,6 +875,8 @@
 
 <main>
   <div class="container">
+    <!-- TASK 1: Add Missing H2 Above Grid -->
+    <h2 class="tools-heading">6 Free Percentage Calculation Tools</h2>
     <div class="grid" id="grid"></div>
   </div>
 </main>
@@ -818,7 +888,7 @@
       <h2>Free Online Percentage Tools</h2>
       <p class="instant-note">Results update instantly as you type — no calculate button required.</p>
       <p>Designed for fast workflows on laptops and desktops, while remaining mobile-friendly.</p>
-      <p>Use this free online percentage calculator to instantly solve common math problems. Whether you need to determine percentage increases for analysis, calculate the <a href="pages/percentage-guide.html" class="seo-link">percentage difference</a> between two numbers, or figure out what percentage X is of Y, this tool delivers accurate results in real-time. Your inputs and recent calculations are saved locally in your browser for convenience.</p>
+      <p>Use this free online percentage calculator to instantly solve common math problems. Whether you need to determine percentage increases for analysis, calculate the percentage difference between two numbers, or figure out what percentage X is of Y, this tool delivers accurate results in real-time. Your inputs and recent calculations are saved locally in your browser for convenience.</p>
       
       <!-- Feature List -->
       <p class="feature-title">This calculator includes:</p>
@@ -896,7 +966,7 @@
         <!-- REFINED: Updated description to match the "relative to B" logic -->
         <div class="formula-item">
           <h3>Calculate Percentage Difference</h3>
-          <p>In this tool, this is calculated by dividing the absolute difference between two values by their average. Use this when comparing two values where neither is the "standard" or "original". Check the <a href="pages/percentage-guide.html" class="seo-link">percentage difference</a> formula.</p>
+          <p>In this tool, this is calculated by dividing the absolute difference between two values by their average. Use this when comparing two values where neither is the "standard" or "original". Check the percentage difference formula.</p>
           <div class="formula-box">
             Formula: |A - B| ÷ ((A + B) / 2) × 100<br>
             Example: 50 (A) vs 40 (B)<br>
@@ -920,7 +990,7 @@
       <div class="faq-item">
         <h3>3. What is the percentage difference formula?</h3>
         <!-- REFINED: Updated answer to clarify "relative to second value" logic -->
-        <p>In this calculator, <a href="pages/percentage-guide.html" class="seo-link">percentage difference</a> is calculated by dividing the absolute difference between two values by their average ((A + B) / 2) and multiplying by 100.</p>
+        <p>In this calculator, percentage difference is calculated by dividing the absolute difference between two values by their average ((A + B) / 2) and multiplying by 100.</p>
       </div>
       <div class="faq-item">
         <h3>4. Is this calculator free to use?</h3>
@@ -979,38 +1049,51 @@
 <script>
 // V2: Storage Key Prefix
 const STORE_KEY = 'pcalc_v2_';
+// TASK 5: URL State Sharing Variable
+let userInteracted = false;
 
+// TASK 3: Fix Rounding Logic
 // Centralized formatting logic for consistency
-const formatNum = (num) => +num.toFixed(4);
+const formatNum = (num) => {
+  if (Number.isInteger(num)) return num;
+  return parseFloat(num.toFixed(4));
+};
 
 const calcs = [
   { 
     title: "What is X% of Y?", 
+    // TASK 7: Add Slugs
+    slug: "percentage-of-number",
     a: "Percentage (%)", b: "Number", pa: "15", pb: "200",
     fn: (a, b) => `${a}% of ${b} = ${formatNum(a / 100 * b)}` 
   },
   { 
     title: "X is what % of Y?", 
+    slug: "percent-of-total",
     a: "Part (X)", b: "Whole (Y)", pa: "30", pb: "200",
     fn: (a, b) => b === 0 ? "Cannot divide by zero" : `${a} is ${formatNum(a / b * 100)}% of ${b}` 
   },
   { 
     title: "If X is N%, find Total", 
+    slug: "reverse-percentage",
     a: "Value (X)", b: "Percentage (N%)", pa: "30", pb: "15",
     fn: (a, b) => b === 0 ? "Percentage cannot be zero" : `If ${a} is ${b}%, total = ${formatNum(a / b * 100)}` 
   },
   { 
     title: "Percentage Increase", 
+    slug: "percentage-increase",
     a: "Original value", b: "New value", pa: "100", pb: "150",
     fn: (a, b) => a === 0 ? "Original value cannot be zero" : `${a} → ${b} = ${formatNum((b - a) / a * 100)}% increase` 
   },
   { 
     title: "Percentage Decrease", 
+    slug: "percentage-decrease",
     a: "Original value", b: "New value", pa: "150", pb: "100",
     fn: (a, b) => a === 0 ? "Original value cannot be zero" : `${a} → ${b} = ${formatNum((a - b) / a * 100)}% decrease` 
   },
   { 
     title: "Percentage Difference", 
+    slug: "percentage-difference",
     a: "Value A", b: "Value B", pa: "80", pb: "100",
     fn: (a, b) => { 
       if (a === 0 && b === 0) return "Both values are zero";
@@ -1032,6 +1115,8 @@ const fragment = document.createDocumentFragment();
 calcs.forEach((c, index) => {
   const card = document.createElement('div');
   card.className = 'card';
+  // TASK 7: Set ID for Hash Link
+  card.id = c.slug;
   
   const idA = `calc-${index}-a`;
   const idB = `calc-${index}-b`;
@@ -1053,6 +1138,8 @@ calcs.forEach((c, index) => {
       <div class="result-wrapper">
         <div class="result empty" aria-live="polite">Result: —</div>
         <button class="copy-btn" aria-label="Copy result" title="Copy to clipboard">${copySvg}</button>
+        <!-- TASK 4: Add Copy Number Button -->
+        <button class="copy-number-btn" aria-label="Copy number only" title="Copy numeric result">#</button>
       </div>
       
       <!-- NEW: Try Example Section -->
@@ -1071,6 +1158,7 @@ calcs.forEach((c, index) => {
   const inB = card.querySelector('[data-input="b"]');
   const res = card.querySelector('.result');
   const copyBtn = card.querySelector('.copy-btn');
+  const copyNumberBtn = card.querySelector('.copy-number-btn'); // New Button Selection
   const histList = card.querySelector('.history-list');
   const details = card.querySelector('details');
   const tryBtn = card.querySelector('.try-btn');
@@ -1124,6 +1212,17 @@ calcs.forEach((c, index) => {
 
       if (shouldSaveHistory) saveHistory(resultText);
 
+      // TASK 5: URL State Sharing Logic
+      if (!userInteracted) userInteracted = true;
+
+      if (userInteracted) {
+        const params = new URLSearchParams();
+        params.set('tool', index);
+        params.set('a', valA);
+        params.set('b', valB);
+        history.replaceState(null, '', '?' + params.toString());
+      }
+
     } else { 
       res.textContent = 'Result: —'; 
       res.className = 'result empty';
@@ -1167,6 +1266,15 @@ calcs.forEach((c, index) => {
     });
   });
 
+  // TASK 4: Copy Number Only Logic
+  copyNumberBtn.addEventListener('click', () => {
+    const text = res.textContent;
+    const match = text.match(/-?\d+(\.\d+)?/g);
+    if (!match) return;
+    const lastNumber = match[match.length - 1];
+    navigator.clipboard.writeText(lastNumber);
+  });
+
   // NEW: Try Example Button Logic
   tryBtn.addEventListener('click', () => {
     inA.value = c.pa;
@@ -1179,6 +1287,28 @@ calcs.forEach((c, index) => {
 
   fragment.appendChild(card);
 });
+
+// TASK 6: Load from URL Params
+const params = new URLSearchParams(window.location.search);
+const toolIndex = params.get('tool');
+const aVal = params.get('a');
+const bVal = params.get('b');
+
+if (toolIndex !== null && calcs[toolIndex]) {
+  setTimeout(() => {
+    const card = grid.children[toolIndex];
+    if (!card) return;
+
+    const inA = card.querySelector('[data-input="a"]');
+    const inB = card.querySelector('[data-input="b"]');
+
+    if (aVal) inA.value = aVal;
+    if (bVal) inB.value = bVal;
+
+    userInteracted = true;
+    inA.dispatchEvent(new Event('input'));
+  }, 50);
+}
 
 grid.appendChild(fragment);
 
@@ -1207,6 +1337,16 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
     });
   }
 });
+
+// TASK 8: Scroll to Hash
+if (window.location.hash) {
+  const target = document.querySelector(window.location.hash);
+  if (target) {
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+}
 </script>
 </body>
 </html>
