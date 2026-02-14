@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Percentages: Complete Guide with Formulas & Examples</title>
+    <meta name="description" content="This complete percentage guide explains how to calculate percentages, including percentage increase, decrease, difference, and reverse percentage calculations.">
+    
+    <!-- BRANDING: Favicons (Linked to root) -->
+    <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../favicon/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    
+    <!-- FONTS: Inter (Optimized Loading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="../css/site.css">
+    
+    <!-- PAGE SPECIFIC STYLES -->
+    <style>
+        /* Matches .about-section logic but left-aligned for prose */
+        .guide-card {
+            max-width: 900px; /* Matched to .about-section */
+            margin: 0 auto 2rem auto; 
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: var(--radius); /* Using global var */
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .guide-content h1 {
+            font-size: 1.5rem; /* Adjusted to sit well within the card */
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        .guide-content h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .guide-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .guide-content p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .guide-content ul, .guide-content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .guide-content li {
+            margin-bottom: 0.5rem;
+        }
+        .example-box {
+            background: var(--bg-body); 
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .formula-display {
+            font-family: monospace; 
+            background: #f1f5f9; /* Slightly darker than white for contrast against white card */
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            display: inline-block;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .cheat-sheet {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .cheat-sheet { grid-template-columns: 1fr 1fr; }
+        }
+        .cheat-item {
+            background: #f8fafc; 
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .cheat-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- V3: Top Ad Slot (CLS Safe) -->
+<div class="container">
+  <div class="ad-slot top" role="region" aria-label="Advertisement"></div>
+</div>
+
+<header>
+  <div class="container">
+    <div class="header-top-row">
+      <div class="brand-wrapper">
+        <a href="../" style="text-decoration: none; display: flex; align-items: center; gap: 0.6rem;">
+            <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 4.5l-15 15m0 0h.01M19.5 4.5h.01M6 9a3 3 0 110-6 3 3 0 010 6zm12 12a3 3 0 110-6 3 3 0 010 6z" />
+            </svg>
+            <h1>Percentage Calculator</h1>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="../">Home</a>
+            <span class="separator">/</span>
+            <span>Percentage Guide</span>
+        </div>
+
+        <!-- Replaced inline style container with .guide-card class for consistency -->
+        <div class="guide-card guide-content">
+            
+            <h1>Learn Percentages: Complete Guide with Formulas, Examples & Shortcuts</h1>
+            
+            <p>This complete percentage guide explains how to calculate percentages, including percentage increase, decrease, difference, and reverse percentage calculations.</p>
+            <p>Use these formulas for exams, finance, business analysis, shopping discounts, and everyday math.</p>
+            
+            <div class="example-box" style="background: var(--primary-bg); border-color: var(--primary);">
+                <strong>Need fast results?</strong> <a href="../" class="text-link">Use the Percentage Calculator</a> to solve problems instantly.
+            </div>
+
+            <h2>What Is a Percentage?</h2>
+            <p>A percentage is a way of expressing a number as a fraction of 100. The word “percent” literally means <em>per hundred</em>.</p>
+            <p>Percentages help compare values, track change over time, and measure proportions.</p>
+            
+            <div class="example-box">
+                <strong>Example:</strong><br>
+                50% means 50 out of every 100.
+            </div>
+
+            <p>Percentage can be written in three forms:</p>
+            <ul>
+                <li><strong>Percentage:</strong> 25%</li>
+                <li><strong>Decimal:</strong> 0.25</li>
+                <li><strong>Fraction:</strong> 1/4</li>
+            </ul>
+
+            <h2>How to Calculate a Percentage (Step-by-Step)</h2>
+            <div class="formula-display">(Percentage ÷ 100) × Total Value</div>
+
+            <div class="example-box">
+                <strong>Example: Find 20% of 50</strong>
+                <ol style="margin: 0.5rem 0 0 1.2rem; color: var(--text-muted);">
+                    <li>Convert percentage to decimal → 20 ÷ 100 = 0.20</li>
+                    <li>Multiply by total → 0.20 × 50</li>
+                    <li><strong>Result = 10</strong></li>
+                </ol>
+            </div>
+
+            <h2>Core Percentage Formulas</h2>
+
+            <h3>1. Find X% of Y</h3>
+            <div class="formula-display">(X ÷ 100) × Y</div>
+            <p>Example: 15% of 200 = 30</p>
+
+            <h3>2. X Is What Percent of Y?</h3>
+            <div class="formula-display">(Part ÷ Whole) × 100</div>
+            <p>Example: 42 out of 50 = 84%</p>
+
+            <h3>3. Reverse Percentage (Find Original Value)</h3>
+            <div class="formula-display">Part ÷ (Percentage ÷ 100)</div>
+            <p>Example: 30 is 15% of what?<br>
+            30 ÷ 0.15 = 200</p>
+
+            <h2>Percentage Increase Formula</h2>
+            <p>Use to measure growth such as price rises or salary increases.</p>
+            <div class="formula-display">((New − Old) ÷ Old) × 100</div>
+
+            <div class="example-box">
+                <strong>Example: 100 → 150</strong><br>
+                ((150 − 100) ÷ 100) × 100 = <strong>50% Increase</strong>
+            </div>
+
+            <h2>Percentage Decrease Formula</h2>
+            <p>Use for discounts, depreciation, or reductions.</p>
+            <div class="formula-display">((Old − New) ÷ Old) × 100</div>
+
+            <div class="example-box">
+                <strong>Example: 200 → 150</strong><br>
+                ((200 − 150) ÷ 200) × 100 = <strong>25% Decrease</strong>
+            </div>
+
+            <h2>Percentage Change vs Percentage Difference</h2>
+            <p><strong>Percent Change:</strong> Used when tracking change over time. Divide by the <em>original value</em>.</p>
+            <p><strong>Percent Difference:</strong> Used when comparing two separate values. Divide by the <em>average of both values</em>.</p>
+            <div class="formula-display">|A − B| ÷ ((A + B) / 2) × 100</div>
+
+            <h2>Percentage Points vs Percent</h2>
+            <p>If a rate rises from 4% to 5%:</p>
+            <ul>
+                <li><strong>Increase</strong> = 1 percentage point</li>
+                <li><strong>Relative increase</strong> = 25%</li>
+            </ul>
+            <p>Percentage points describe absolute change, not relative growth.</p>
+
+            <h2>Real-World Uses of Percentages</h2>
+            <ul>
+                <li><strong>Finance:</strong> interest rates, ROI, taxes</li>
+                <li><strong>Shopping:</strong> discounts and price comparisons</li>
+                <li><strong>Business:</strong> profit margin and revenue growth</li>
+                <li><strong>Education:</strong> grades and exam scores</li>
+                <li><strong>Statistics:</strong> surveys and analysis</li>
+            </ul>
+
+            <h2>Mental Math Tricks</h2>
+            <div class="cheat-sheet">
+                <div class="cheat-item">
+                    <strong>10% Trick</strong>
+                    Move decimal one place left.<br>
+                    10% of 450 = 45
+                </div>
+                <div class="cheat-item">
+                    <strong>1% Trick</strong>
+                    Move decimal two places left.<br>
+                    1% of 450 = 4.5
+                </div>
+                <div class="cheat-item">
+                    <strong>Double & Halve</strong>
+                    4% of 50 = same as 50% of 4 = 2
+                </div>
+                <div class="cheat-item">
+                    <strong>15% Tip Shortcut</strong>
+                    Find 10%, then add half of it.
+                </div>
+            </div>
+
+            <h2>Common Percentage Mistakes</h2>
+            <ul>
+                <li><strong>Dividing by the wrong base.</strong> Always divide by the original value for percent change.</li>
+                <li><strong>Adding percentages incorrectly.</strong> 20% off + 20% off ≠ 40% (actual = 36%).</li>
+                <li><strong>Subtracting instead of reversing.</strong> To remove 20% tax, divide by 1.20, don't subtract 20%.</li>
+            </ul>
+
+            <h2>Word Problem Examples</h2>
+            <ul>
+                <li><strong>Salary Raise:</strong> $50,000 with 5% increase → $52,500</li>
+                <li><strong>Discount:</strong> $1,000 with 20% off → $800</li>
+                <li><strong>Population Growth:</strong> 10,000 growing 10% yearly for 2 years → 12,100</li>
+                <li><strong>Exam Score:</strong> 80% of 60 questions → 48 correct</li>
+            </ul>
+
+            <h2>Percentage Formula Cheat Sheet</h2>
+            <div class="cheat-sheet">
+                <div class="cheat-item">
+                    <strong>Find X% of Y</strong>
+                    (X ÷ 100) × Y
+                </div>
+                <div class="cheat-item">
+                    <strong>Find Percent</strong>
+                    (Part ÷ Whole) × 100
+                </div>
+                <div class="cheat-item">
+                    <strong>% Increase</strong>
+                    ((New − Old) ÷ Old) × 100
+                </div>
+                <div class="cheat-item">
+                    <strong>% Decrease</strong>
+                    ((Old − New) ÷ Old) × 100
+                </div>
+                <div class="cheat-item">
+                    <strong>% Difference</strong>
+                    |A − B| ÷ Avg × 100
+                </div>
+            </div>
+
+            <h2>FAQs</h2>
+            <div style="margin-top: 1rem;">
+                <h3>Can percentages exceed 100%?</h3>
+                <p>Yes. If a value doubles, that is a 100% increase.</p>
+
+                <h3>Why are percentages important?</h3>
+                <p>They standardize comparisons and simplify analysis.</p>
+
+                <h3>When should I use percentage difference?</h3>
+                <p>Use it when comparing two independent values instead of tracking change over time.</p>
+            </div>
+
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center;">
+                <a href="../" class="text-link">← Back to Calculator</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+  <div class="container">
+    <!-- Contextual Strip (Matching visual weight of Knowledge Strip on other pages) -->
+    <section class="knowledge-strip">
+      <h2>Ready to start calculating?</h2>
+      <p>
+        Use our free tool to calculate percentage increase, decrease, difference, and more instantly.
+      </p>
+      <a href="../" class="text-link">
+        Open Percentage Calculator →
+      </a>
+    </section>
+  </div>
+
+  <div class="footer-bottom-section">
+    <div class="container">
+        <div class="footer-links">
+          <div style="margin-top: 0.5rem;">
+            <a href="about.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">About</a>
+            <a href="privacy.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">Privacy</a>
+          </div>
+          <a href="percentage-guide.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8;">Learn percentage formulas & step-by-step explanations →</a>
+        </div>
+
+        <p class="copyright">&copy; 2026 percentagecalculator.<a href="https://toolblaster.com" style="color: inherit; text-decoration: underline;">Toolblaster.com</a> &middot; Free online Percentage calculation tools</p>
+        
+        <div class="footer-end-actions" style="margin-top: 1.5rem; text-align: center;">
+          <div class="evergreen-note">
+            This tool is intentionally simple and will remain free and unchanged.
+          </div>
+          <div class="trust-bar">
+            No login required &middot; Works offline &middot; No data is stored or tracked
+          </div>
+        </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
