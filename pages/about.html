@@ -1,309 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="About Percentage Calculator. Learn about our mission to provide fast, free, and privacy-focused mathematical tools for everyone.">
-<link rel="canonical" href="https://percentagecalculator.toolblaster.com/pages/about.html">
-<title>About Us - Percentage Calculator</title>
-
-<!-- FONTS: Inter -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
-<noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
-</noscript>
-
-<!-- BRANDING: Favicons -->
-<link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="48x48" href="../favicon/favicon-48x48.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-<link rel="manifest" href="../favicon/site.webmanifest">
-
-<style>
-  /* STEP 1: IMPORT SAME DESIGN TOKENS */
-  :root {
-    --bg-body: #f8fafc;
-    --bg-card: rgba(255, 255, 255, 0.9);
-    --text-main: #0f172a;
-    --text-muted: #334155;
-    --border: #e2e8f0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Percentage Calculator</title>
+    <meta name="description" content="Learn about our free online percentage calculator tool, our mission, and privacy commitments.">
+    <meta name="robots" content="noindex, nofollow">
     
-    --primary: #4f46e5;
-    --primary-hover: #4338ca;
-    --primary-bg: #eef2ff;
-    --primary-light: #6366f1;
+    <!-- BRANDING: Favicons (Linked to root) -->
+    <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../favicon/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
     
-    --radius: 12px;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    <!-- FONTS: Inter (Optimized Loading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
 
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  }
-  
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  /* STEP 2: MATCH BODY BACKGROUND STYLE */
-  body { 
-    font-family: var(--font-sans); 
-    background: var(--bg-body); 
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.03) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.03) 0px, transparent 50%);
-    background-attachment: fixed;
-    color: var(--text-main); 
-    line-height: 1.6; 
-    font-size: 14px;
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
-  }
-
-  /* STEP 3: STANDARDIZE CONTAINER WIDTH */
-  .container { 
-    max-width: 1140px; 
-    margin: 0 auto; 
-    padding: 0 1rem; 
-  }
-
-  /* STEP 4: UPDATE HEADER STYLE (NON-STICKY) */
-  header { 
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 0.5rem 0;
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow-sm);
-    position: relative; /* Static positioning */
-    z-index: 10;
-  }
-
-  .header-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .brand-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-  }
-  
-  .brand-icon {
-    width: 26px;
-    height: 26px;
-    color: white;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    padding: 5px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.25);
-  }
-  
-  header h1 { 
-    font-size: 1.1rem;
-    font-weight: 800; 
-    letter-spacing: -0.02em;
-    margin: 0;
-    line-height: 1.1;
-    background: linear-gradient(to right, var(--text-main), #334155);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* STEP 5: WRAPPER STYLE (CARD) */
-  .section-card {
-    background: var(--bg-card);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: var(--radius);
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-md);
-  }
-
-  /* STEP 6: ALIGN TYPOGRAPHY SCALE */
-  h1 { 
-    font-size: 1.5rem; 
-    font-weight: 800; 
-    margin-bottom: 1.5rem; 
-    color: var(--text-main);
-    text-align: center;
-  }
-  
-  h2 { 
-    font-size: 1.1rem; 
-    font-weight: 700; 
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: var(--text-main);
-  }
-  
-  p, li { 
-    font-size: 0.9rem; 
-    color: var(--text-muted); 
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-
-  /* Styling for the Feature Grid (restored from original) */
-  .feature-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  @media (min-width: 640px) {
-    .feature-grid { grid-template-columns: 1fr 1fr; }
-  }
-
-  .feature-item {
-    background: rgba(255,255,255,0.5);
-    border: 1px solid var(--border);
-    padding: 1rem;
-    border-radius: 8px;
-  }
-  
-  .feature-item h3 {
-    font-size: 0.95rem;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-  }
-
-  /* STEP 7: UPDATE LINKS TO MATCH PRODUCT STYLE */
-  a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
-  }
-  a:hover {
-    text-decoration: underline;
-    color: var(--primary-hover);
-  }
-
-  /* Back Button Style */
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-  }
-  .back-link svg {
-    margin-right: 4px;
-    width: 16px;
-    height: 16px;
-  }
-
-  /* STEP 8: UNIFY FOOTER STYLE */
-  footer { 
-    border-top: 1px solid var(--border); 
-    margin-top: auto; 
-    background: #fff;
-    padding: 2rem 0;
-  }
-  
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-  }
-  
-  .footer-links a {
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-  
-  footer p.copyright { 
-    text-align: center; 
-    font-size: 0.75rem; 
-    color: var(--text-muted); 
-    margin: 0;
-  }
-
-</style>
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
+
+<!-- V3: Top Ad Slot (CLS Safe - No Text) -->
+<div class="container">
+  <!-- LOCKED AD SPACE - PRESERVED: Added role="region" to generic div with aria-label -->
+  <div class="ad-slot top" role="region" aria-label="Advertisement"></div>
+</div>
 
 <header>
   <div class="container">
     <div class="header-top-row">
-      <a href="../index.html" class="brand-wrapper">
-        <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 4.5l-15 15m0 0h.01M19.5 4.5h.01M6 9a3 3 0 110-6 3 3 0 010 6zm12 12a3 3 0 110-6 3 3 0 010 6z" />
-        </svg>
-        <h1>Percentage Calculator</h1>
-      </a>
+      <div class="brand-wrapper">
+        <!-- 2-in-1 Logo: Icon + H1 Text -->
+        <a href="../" style="text-decoration: none; display: flex; align-items: center; gap: 0.6rem;">
+            <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 4.5l-15 15m0 0h.01M19.5 4.5h.01M6 9a3 3 0 110-6 3 3 0 010 6zm12 12a3 3 0 110-6 3 3 0 010 6z" />
+            </svg>
+            <h1>Percentage Calculator</h1>
+        </a>
+      </div>
     </div>
   </div>
 </header>
 
 <main>
-  <div class="container">
-    <a href="../index.html" class="back-link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-      </svg>
-      Back to Calculator
-    </a>
-
-    <!-- WRAPPED CONTENT IN SECTION-CARD, CONTENT PRESERVED -->
-    <div class="section-card">
-      <h1>About Us</h1>
-      <p>Percentage Calculator is a free, privacy-focused online tool designed to simplify everyday math problems. Whether you are calculating discounts, determining tax amounts, or analyzing growth statistics, our tool provides instant, accurate results without the need for registration or downloads.</p>
-
-      <h2>Our Mission</h2>
-      <p>We believe that useful tools should be accessible, fast, and respectful of user privacy. Our goal is to provide a clean, distraction-free utility that solves your calculation needs instantly.</p>
-
-      <h2>Why Choose Us?</h2>
-      <div class="feature-grid">
-        <div class="feature-item">
-          <h3>Privacy First</h3>
-          <p>We do not collect any personal data. All calculations happen directly in your web browser.</p>
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="../">Home</a>
+            <span class="separator">/</span>
+            <span>About</span>
         </div>
-        <div class="feature-item">
-          <h3>Instant Results</h3>
-          <p>No buttons to click. Results appear instantly as you type.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Offline Capable</h3>
-          <p>Our tool works even when you lose your internet connection.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Free Forever</h3>
-          <p>No paywalls, no hidden fees, and no sign-up required.</p>
-        </div>
-      </div>
 
-      <h2>Contact</h2>
-      <p>Have feedback or suggestions? We'd love to hear from you. Reach out to us at <a href="mailto:hello@toolblaster.com">support@toolblaster.com</a>.</p>
+        <div style="max-width: 800px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 1rem;">About This Tool</h2>
+            
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                Welcome to <strong>Percentage Calculator</strong>, a simple, fast, and privacy-focused utility designed to help you solve everyday math problems instantly.
+            </p>
+
+            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">Our Mission</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                We believe that useful tools should be accessible, free, and easy to use. Many online calculators are cluttered with ads, require logins, or are slow to load. We built this tool to be the opposite:
+            </p>
+            <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); margin-bottom: 1rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>Instant:</strong> Results appear as you type. No "Calculate" button needed.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Private:</strong> All calculations happen in your browser. No data is sent to any server.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Free:</strong> No subscriptions, no paywalls, ever.</li>
+            </ul>
+
+            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">About the Author</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                This tool is created and maintained by <strong>Vikas Rana</strong>.
+            </p>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                You can connect with me on X (formerly Twitter) at <a href="https://x.com/vikasrana03" target="_blank" rel="noopener noreferrer" class="text-link">@vikasrana03</a>.
+            </p>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                For inquiries, feedback, or support, please email us at: <a href="mailto:hello@toolblaster.com" class="text-link">hello@toolblaster.com</a>.
+            </p>
+
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center;">
+                <a href="../" class="text-link">← Back to Calculator</a>
+            </div>
+        </div>
     </div>
-  </div>
 </main>
 
 <footer>
   <div class="container">
-    <div class="footer-links">
-      <a href="../">Home</a>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
+    <!-- Knowledge Strip -->
+    <section class="knowledge-strip">
+      <h2>Want to understand how percentage calculations work?</h2>
+      <p>
+        Learn percentage formulas for increase, decrease, difference,
+        reverse percentage, and step-by-step examples in our complete guide.
+      </p>
+      <a href="percentage-guide.html" class="text-link">
+        Learn Percentages – Complete Guide →
+      </a>
+    </section>
+  </div>
+
+  <div class="footer-bottom-section">
+    <div class="container">
+        <div class="footer-links">
+          <div style="margin-top: 0.5rem;">
+            <a href="about.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">About</a>
+            <a href="privacy.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">Privacy</a>
+          </div>
+          <a href="percentage-guide.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8;">Learn percentage formulas & step-by-step explanations →</a>
+        </div>
+
+        <p class="copyright">&copy; 2026 percentagecalculator.<a href="https://toolblaster.com" style="color: inherit; text-decoration: underline;">Toolblaster.com</a> &middot; Free online Percentage calculation tools</p>
+        
+        <div class="footer-end-actions" style="margin-top: 1.5rem; text-align: center;">
+          <div class="evergreen-note">
+            This tool is intentionally simple and will remain free and unchanged.
+          </div>
+          <div class="trust-bar">
+            No login required &middot; Works offline &middot; No data is stored or tracked
+          </div>
+        </div>
     </div>
-    <p class="copyright">&copy; 2026 percentagecalculator.toolblaster.com</p>
   </div>
 </footer>
 
 </body>
 </html>
-
