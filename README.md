@@ -9,19 +9,14 @@ URL: https://percentagecalculator.toolblaster.com/
 📂 Project Structure
 
 /
-├── index.html          # Main calculator tool (formerly percentage-calculator.html)
+├── index.html          # Main calculator tool
+├── css/
+│   └── site.css        # Global styles and shared design tokens
 ├── pages/
-│   ├── about.html      # About page describing the tool's philosophy
-│   └── privacy.html    # Privacy Policy page
-└── favicon/            # Directory for favicon assets (refer to list below)
-    ├── web-app-manifest-192x192.png
-    ├── site.webmanifest
-    ├── favicon-96x96.png
-    ├── favicon-48x48.png
-    ├── favicon-32x32.png
-    ├── favicon-16x16.png
-    ├── apple-touch-icon.png
-    └── android-chrome-*.png
+│   ├── about.html           # About page
+│   ├── privacy.html         # Privacy Policy page
+│   └── percentage-guide.html # Educational formulas guide
+└── favicon/            # Directory for favicon assets
 
 
 ✨ Key Features
@@ -52,7 +47,7 @@ Responsive Design: Optimized for laptop screens (3-column grid) while fully mobi
 
 SEO Optimized: Includes valid JSON-LD Schema (WebPage, FAQPage) and Open Graph tags.
 
-Ad-Ready: Includes CLS-safe, locked ad placeholders (.ad-slot) hidden by default.
+Ad-Ready & CLS Safe: Includes reserved ad slots that prevent layout shifts on the tool page, while gracefully collapsing on content pages.
 
 🛠️ Setup & Usage
 
@@ -68,24 +63,25 @@ Run: Open index.html directly in any modern browser or deploy to any static host
 
 Enabling Ads
 
-The ad slots are currently hidden (display: none) but structurally reserved to prevent Cumulative Layout Shift (CLS).
-To enable them:
+The ad slots are structurally reserved to prevent Cumulative Layout Shift (CLS) on the calculator page but are hidden on content pages via the no-ads body class.
+
+To enable ads on the main calculator (index.html):
 
 Open index.html.
 
-Search for .ad-slot in the <style> block.
+Locate the <div class="ad-slot ..."></div> containers.
 
-Change display: none; to display: flex;.
+Insert your ad network code (e.g., Google AdSense) inside these containers.
 
-Uncomment height: 100px; and margin: 0.5rem auto;.
+In css/site.css, locate the .ad-slot rule and change display: none to display: flex (or block) to make them visible.
 
-Insert your ad code inside the HTML <div class="ad-slot ..."></div> containers.
+Note: Content pages (Guide, About, Privacy) have a <body class="no-ads"> tag which forces these slots to collapse via CSS, keeping those pages clean.
 
 Updating Branding
 
-Colors: Modify the CSS variables in the :root block (e.g., --primary, --text-main) in all HTML files.
+Colors: Modify the CSS variables in the :root block in css/site.css (e.g., --primary, --text-main).
 
-Text: Update the Footer copyright year and text in index.html, pages/about.html, and pages/privacy.html.
+Text: Update the Footer copyright year and text in index.html and pages in the pages/ directory.
 
 📜 License
 
