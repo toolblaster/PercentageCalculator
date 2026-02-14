@@ -1,3 +1,9 @@
+<!--
+VERSION: Evergreen v1.0
+This tool is intentionally feature-stable.
+Do not redesign unless functionality breaks.
+Last structural update: 2026
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +15,7 @@
 <link rel="canonical" href="https://percentagecalculator.toolblaster.com/">
 
 <!-- SOCIAL: Open Graph Meta Tags -->
-<meta property="og:title" content="Percentage Calculator – Fast & Accurate | 6 Different calculations">
+<meta property="og:title" content="Percentage Calculator – Fast Increase, Decrease & Comparison Calculations">
 <meta property="og:description" content="A fast, free percentage calculator with real-time results. Calculate percentage values, increases, decreases, differences, and reverse percentages instantly.">
 <meta property="og:url" content="https://percentagecalculator.toolblaster.com/">
 <meta property="og:site_name" content="ToolBlaster">
@@ -34,7 +40,7 @@
 </noscript>
 
 <!-- TASK 2: Improve Title Tag -->
-<title>Percentage Calculator (6 Tools) – Increase, Decrease, Difference & More</title>
+<title>Percentage Calculator – Fast Increase, Decrease & Comparison Calculations</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,6 +95,20 @@
       ]
     }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Percentage Calculator",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Any",
+ "description": "Free online percentage calculator for increases, decreases, comparisons, and reverse calculations.",
+ "offers": {
+   "@type": "Offer",
+   "price": "0"
+ }
 }
 </script>
 <style>
@@ -233,17 +253,17 @@
     gap: 0.6rem;
   }
   .brand-icon {
-    width: 26px; /* Smaller icon */
-    height: 26px;
+    width: 32px; /* Increased from 26px */
+    height: 32px;
     color: white;
     /* Gradient Brand Icon - Higher contrast start/end */
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    padding: 5px;
-    border-radius: 6px;
+    padding: 6px; /* Increased padding slightly for larger icon */
+    border-radius: 8px; /* Slightly larger radius */
     box-shadow: 0 2px 4px rgba(67, 56, 202, 0.25);
   }
   header h1 { 
-    font-size: 1.1rem; /* Smaller title */
+    font-size: 1.25rem; /* Increased size to match larger icon visual weight */
     font-weight: 800; 
     letter-spacing: -0.02em;
     margin: 0;
@@ -263,17 +283,22 @@
     margin: 0;
     line-height: 1.3;
     font-weight: 500; /* Increased weight */
+    /* Align with text start (icon width 32px + gap 0.6rem approx 9.6px + slight offset) */
+    margin-left: calc(32px + 0.6rem); 
+  }
+
+  /* NEW: Context Strip Styles (H2) */
+  .context-strip {
+    font-size: 0.8rem;
+    font-weight: 500; /* Medium weight, not bold */
+    color: var(--text-muted);
+    padding: 6px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+    margin: 0 0 10px 0; /* Reset H2 default margins */
+    text-align: center; /* Centered Text */
   }
 
   main { padding-bottom: 1.5rem; flex: 1; }
-
-  /* TASK 1: CSS for H2 Heading */
-  .tools-heading {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: var(--text-main);
-  }
 
   /* Grid Layout */
   .grid { 
@@ -368,7 +393,7 @@
     .card-body { 
         grid-template-columns: 1fr 1fr; 
     }
-    .result-wrapper, .try-example, details.history { grid-column: 1 / -1; }
+    .result-wrapper, .try-example, details.history, .explain-section { grid-column: 1 / -1; }
   }
 
   /* Input Fields */
@@ -502,6 +527,36 @@
     border-color: var(--primary);
   }
 
+  /* NEW: Explanation Styles */
+  .explain-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 0.25rem;
+    padding: 0;
+    display: none; /* Hidden by default until result exists */
+    width: fit-content;
+  }
+  .explain-btn:hover { color: var(--primary); }
+  
+  .explanation-box {
+      display: none;
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-family: 'Inter', monospace;
+      color: var(--text-main);
+      white-space: pre-wrap;
+      line-height: 1.5;
+  }
+  .explanation-box.visible { display: block; }
+
   /* Try Example Section - NEW FEATURE */
   .try-example {
     grid-column: 1 / -1;
@@ -608,11 +663,19 @@
     margin-top: 0;
   }
   
+  /* NEW: Evergreen Note */
+  .evergreen-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
   /* UPDATED: Plain text trust bar */
   .trust-bar {
     font-size: 0.75rem;
     color: var(--text-muted);
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     text-align: center;
     font-weight: 500;
@@ -694,12 +757,7 @@
     padding: 1rem;
     border-radius: 10px;
     border: 1px solid var(--border);
-    transition: transform 0.2s;
-  }
-  .formula-item:hover {
-    background: #fff;
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    /* Removed transition and hover effect */
   }
   .formula-item h3 {
     font-size: 0.9rem;
@@ -868,15 +926,16 @@
       </div>
       <!-- Share Button Moved to Footer -->
     </div>
-    <!-- New Description under H1 -->
-    <p class="header-desc">Calculate percentages instantly — fast and accurate</p>
+    <!-- UPDATED: Description removed per request -->
   </div>
 </header>
 
 <main>
   <div class="container">
-    <!-- TASK 1: Add Missing H2 Above Grid -->
-    <h2 class="tools-heading">6 Free Percentage Calculation Tools</h2>
+    <!-- NEW: Context Strip (H2 Heading) -->
+    <h2 class="context-strip">
+        Universal percentage calculator — compare change, find original value, compare two numbers.
+    </h2>
     <div class="grid" id="grid"></div>
   </div>
 </main>
@@ -890,16 +949,8 @@
       <p>Designed for fast workflows on laptops and desktops, while remaining mobile-friendly.</p>
       <p>Use this free online percentage calculator to instantly solve common math problems. Whether you need to determine percentage increases for analysis, calculate the percentage difference between two numbers, or figure out what percentage X is of Y, this tool delivers accurate results in real-time. Your inputs and recent calculations are saved locally in your browser for convenience.</p>
       
-      <!-- Feature List -->
-      <p class="feature-title">This calculator includes:</p>
-      <ul class="feature-list">
-        <li>Percentage of a number</li>
-        <li>Percentage from total</li>
-        <li>Reverse percentage</li>
-        <li>Percentage increase</li>
-        <li>Percentage decrease</li>
-        <li>Percentage difference</li>
-      </ul>
+      <!-- Feature List REPLACED -->
+      <p style="margin-top: 1rem; color: var(--text-muted);">Supports increases, decreases, comparisons, and reverse calculations.</p>
     </div>
 
     <!-- NEW: Knowledge Strip -->
@@ -1019,6 +1070,11 @@
         
         <!-- Footer End Actions -->
         <div class="footer-end-actions" style="margin-top: 1.5rem; text-align: center;">
+          <!-- NEW: Evergreen Note -->
+          <div class="evergreen-note">
+            This tool is intentionally simple and will remain free and unchanged.
+          </div>
+
           <!-- Trust Signals -->
           <div class="trust-bar">
             No login required &middot; Works offline &middot; No data is stored or tracked
@@ -1062,34 +1118,59 @@ const formatNum = (num) => {
 const calcs = [
   { 
     title: "What is X% of Y?", 
-    // TASK 7: Add Slugs
     slug: "percentage-of-number",
     a: "Percentage (%)", b: "Number", pa: "15", pb: "200",
-    fn: (a, b) => `${a}% of ${b} = ${formatNum(a / 100 * b)}` 
+    fn: (a, b) => `${a}% of ${b} = ${formatNum(a / 100 * b)}`,
+    explain: (a, b) => {
+        const dec = a/100;
+        return `Step 1: Convert percentage to decimal\n${a} ÷ 100 = ${formatNum(dec)}\n\nStep 2: Multiply by number\n${formatNum(dec)} × ${b} = ${formatNum(dec*b)}`;
+    }
   },
   { 
     title: "X is what % of Y?", 
     slug: "percent-of-total",
     a: "Part (X)", b: "Whole (Y)", pa: "30", pb: "200",
-    fn: (a, b) => b === 0 ? "Cannot divide by zero" : `${a} is ${formatNum(a / b * 100)}% of ${b}` 
+    fn: (a, b) => b === 0 ? "Cannot divide by zero" : `${a} is ${formatNum(a / b * 100)}% of ${b}`,
+    explain: (a, b) => {
+        if(b===0) return 'Cannot divide by zero.';
+        const ratio = a/b;
+        return `Step 1: Divide part by whole\n${a} ÷ ${b} = ${formatNum(ratio)}\n\nStep 2: Multiply by 100\n${formatNum(ratio)} × 100 = ${formatNum(ratio*100)}%`;
+    }
   },
   { 
     title: "If X is N%, find Total", 
     slug: "reverse-percentage",
     a: "Value (X)", b: "Percentage (N%)", pa: "30", pb: "15",
-    fn: (a, b) => b === 0 ? "Percentage cannot be zero" : `If ${a} is ${b}%, total = ${formatNum(a / b * 100)}` 
+    fn: (a, b) => b === 0 ? "Percentage cannot be zero" : `If ${a} is ${b}%, total = ${formatNum(a / b * 100)}`,
+    explain: (a, b) => {
+        if(b===0) return 'Percentage cannot be zero.';
+        const dec = b/100;
+        return `Step 1: Convert percentage to decimal\n${b} ÷ 100 = ${formatNum(dec)}\n\nStep 2: Divide value by decimal\n${a} ÷ ${formatNum(dec)} = ${formatNum(a/dec)}`;
+    }
   },
   { 
     title: "Percentage Increase", 
     slug: "percentage-increase",
     a: "Original value", b: "New value", pa: "100", pb: "150",
-    fn: (a, b) => a === 0 ? "Original value cannot be zero" : `${a} → ${b} = ${formatNum((b - a) / a * 100)}% increase` 
+    fn: (a, b) => a === 0 ? "Original value cannot be zero" : `${a} → ${b} = ${formatNum((b - a) / a * 100)}% increase`,
+    explain: (a, b) => {
+        if(a===0) return 'Original value cannot be zero.';
+        const diff = b - a;
+        const ratio = diff / a;
+        return `Step 1: Find the difference\n${b} - ${a} = ${formatNum(diff)}\n\nStep 2: Divide by original value\n${formatNum(diff)} ÷ ${a} = ${formatNum(ratio)}\n\nStep 3: Multiply by 100\n${formatNum(ratio)} × 100 = ${formatNum(ratio*100)}%`;
+    }
   },
   { 
     title: "Percentage Decrease", 
     slug: "percentage-decrease",
     a: "Original value", b: "New value", pa: "150", pb: "100",
-    fn: (a, b) => a === 0 ? "Original value cannot be zero" : `${a} → ${b} = ${formatNum((a - b) / a * 100)}% decrease` 
+    fn: (a, b) => a === 0 ? "Original value cannot be zero" : `${a} → ${b} = ${formatNum((a - b) / a * 100)}% decrease`,
+    explain: (a, b) => {
+        if(a===0) return 'Original value cannot be zero.';
+        const diff = a - b;
+        const ratio = diff / a;
+        return `Step 1: Find the difference\n${a} - ${b} = ${formatNum(diff)}\n\nStep 2: Divide by original value\n${formatNum(diff)} ÷ ${a} = ${formatNum(ratio)}\n\nStep 3: Multiply by 100\n${formatNum(ratio)} × 100 = ${formatNum(ratio*100)}%`;
+    }
   },
   { 
     title: "Percentage Difference", 
@@ -1101,13 +1182,21 @@ const calcs = [
       if (avg === 0) return "Cannot calculate percentage difference";
       const r = (Math.abs(a - b) / avg) * 100;
       return `The percentage difference between A and B is ${formatNum(r)}%`; 
-    } 
+    },
+    explain: (a, b) => {
+        if (a === 0 && b === 0) return "Both values are zero";
+        const diff = Math.abs(a - b);
+        const avg = (a + b) / 2;
+        if(avg===0) return "Average is zero, cannot calculate.";
+        const ratio = diff / avg;
+        return `Step 1: Absolute Difference\n|${a} - ${b}| = ${formatNum(diff)}\n\nStep 2: Average\n(${a} + ${b}) ÷ 2 = ${formatNum(avg)}\n\nStep 3: Difference ÷ Average × 100\n${formatNum(diff)} ÷ ${formatNum(avg)} × 100 = ${formatNum(ratio * 100)}%`;
+    }
   }
 ];
 
 const grid = document.getElementById('grid');
 const resetSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>';
-const copySvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+const copySvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
 const checkSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
 const fragment = document.createDocumentFragment();
@@ -1141,6 +1230,12 @@ calcs.forEach((c, index) => {
         <!-- TASK 4: Add Copy Number Button -->
         <button class="copy-number-btn" aria-label="Copy number only" title="Copy numeric result">#</button>
       </div>
+
+      <!-- NEW: Explain Result -->
+      <div class="explain-section">
+         <button class="explain-btn" aria-expanded="false">[ Explain ]</button>
+         <div class="explanation-box" aria-hidden="true"></div>
+      </div>
       
       <!-- NEW: Try Example Section -->
       <div class="try-example">
@@ -1160,8 +1255,51 @@ calcs.forEach((c, index) => {
   const copyBtn = card.querySelector('.copy-btn');
   const copyNumberBtn = card.querySelector('.copy-number-btn'); // New Button Selection
   const histList = card.querySelector('.history-list');
-  const details = card.querySelector('details');
   const tryBtn = card.querySelector('.try-btn');
+  
+  // Explain features
+  const explainBtn = card.querySelector('.explain-btn');
+  const explainBox = card.querySelector('.explanation-box');
+
+  // NEW: Keyboard Power User Features
+  card.addEventListener('keydown', (e) => {
+    // 1. Esc to reset
+    if (e.key === 'Escape') {
+        const resetBtn = card.querySelector('.reset-btn');
+        resetBtn.click();
+        resetBtn.focus();
+    }
+    // 2. Ctrl/Cmd + C to copy result
+    if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
+        if (!window.getSelection().toString()) {
+            // Only copy result if user hasn't selected text manually
+            e.preventDefault();
+            copyBtn.click();
+        }
+    }
+    // 3. Enter to Jump inputs
+    if (e.key === 'Enter') {
+        if (document.activeElement === inA) {
+            e.preventDefault();
+            inB.focus();
+        } else if (document.activeElement === inB) {
+            // Optional: Jump to next card? For now, just commit (blur or stay)
+            // Default behavior handles commit via change event
+        }
+    }
+  });
+
+  // Explain Toggle Logic
+  explainBtn.addEventListener('click', () => {
+    const isVisible = explainBox.classList.contains('visible');
+    if (isVisible) {
+        explainBox.classList.remove('visible');
+        explainBtn.setAttribute('aria-expanded', 'false');
+    } else {
+        explainBox.classList.add('visible');
+        explainBtn.setAttribute('aria-expanded', 'true');
+    }
+  });
 
   const loadState = () => {
     const savedA = localStorage.getItem(`${STORE_KEY}${index}_a`);
@@ -1207,6 +1345,10 @@ calcs.forEach((c, index) => {
         res.classList.add('updated');
       }
 
+      // Update Explanation
+      explainBox.textContent = c.explain(valA, valB);
+      explainBtn.style.display = 'block';
+
       localStorage.setItem(`${STORE_KEY}${index}_a`, inA.value);
       localStorage.setItem(`${STORE_KEY}${index}_b`, inB.value);
 
@@ -1226,6 +1368,8 @@ calcs.forEach((c, index) => {
     } else { 
       res.textContent = 'Result: —'; 
       res.className = 'result empty';
+      explainBtn.style.display = 'none';
+      explainBox.classList.remove('visible');
       if (inA.value === '') localStorage.removeItem(`${STORE_KEY}${index}_a`);
       if (inB.value === '') localStorage.removeItem(`${STORE_KEY}${index}_b`);
     }
@@ -1237,8 +1381,7 @@ calcs.forEach((c, index) => {
   const commit = () => update(true);
   inA.addEventListener('change', commit);
   inB.addEventListener('change', commit);
-  inA.addEventListener('keydown', (e) => { if (e.key === 'Enter') commit(); });
-  inB.addEventListener('keydown', (e) => { if (e.key === 'Enter') commit(); });
+  // Keydown listeners moved to card level for centralized handling
   
   card.querySelector('.reset-btn').addEventListener('click', () => { 
     inA.value = ''; 
