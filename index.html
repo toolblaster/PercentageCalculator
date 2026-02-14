@@ -1,5 +1,5 @@
 <!--
-VERSION: Evergreen v1.0
+VERSION: Evergreen v1.6 (Stability Patch)
 This tool is intentionally feature-stable.
 Do not redesign unless functionality breaks.
 Last structural update: 2026
@@ -140,13 +140,13 @@ Last structural update: 2026
     --radius: 12px; /* Slightly reduced radius for tighter look */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-    /* VISUAL ACCENTS: More vibrant, unified palette - High Contrast Versions */
-    --accent-1: #4338ca; /* Indigo 700 */
-    --accent-2: #0369a1; /* Sky 700 */
-    --accent-3: #7c3aed; /* Violet 600 */
-    --accent-4: #059669; /* Emerald 600 */
-    --accent-5: #d97706; /* Amber 600 */
-    --accent-6: #db2777; /* Pink 600 */
+    /* VISUAL ACCENTS: Pastel/Muted Palette (400s) - Easy on eyes */
+    --accent-1: #818cf8; /* Indigo 400 */
+    --accent-2: #38bdf8; /* Sky 400 */
+    --accent-3: #a78bfa; /* Violet 400 */
+    --accent-4: #34d399; /* Emerald 400 */
+    --accent-5: #fbbf24; /* Amber 400 */
+    --accent-6: #f472b6; /* Pink 400 */
     
     /* SHADOWS */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -290,7 +290,7 @@ Last structural update: 2026
   /* NEW: Context Strip Styles (H2) */
   .context-strip {
     font-size: 0.8rem;
-    font-weight: 500; /* Medium weight, not bold */
+    font-weight: 600; /* Medium-Bold (Semi-Bold) */
     color: var(--text-muted);
     padding: 6px 0 10px 0;
     border-bottom: 1px solid var(--border);
@@ -432,7 +432,8 @@ Last structural update: 2026
     border-color: var(--primary); 
     box-shadow: 0 0 0 2px rgba(67, 56, 202, 0.15); /* Slightly smaller shadow */
   }
-  .field input::placeholder { color: #475569; /* Slate 600 - High contrast placeholder */ opacity: 1; }
+  /* CHANGED: Lighter placeholder color (Slate 400) to distinguish from input text */
+  .field input::placeholder { color: #94a3b8; /* Slate 400 - Lighter placeholder */ opacity: 1; }
 
   /* Mobile Input Optimization - Keep usable size */
   @media (max-width: 640px) {
@@ -455,7 +456,7 @@ Last structural update: 2026
     padding: 0.25rem 0.5rem;
     border-radius: 6px; 
     text-align: center; 
-    font-size: 0.9rem; 
+    font-size: 13.4px; /* Updated from 0.9rem to 13.4px */
     font-weight: 700; 
     min-height: 32px; /* Compact result */
     display: flex;
@@ -1108,6 +1109,22 @@ const STORE_KEY = 'pcalc_v2_';
 // TASK 5: URL State Sharing Variable
 let userInteracted = false;
 
+// NEW: Safe Number Parser (Stability Patch)
+function parseSafeNumber(value) {
+    if (value === '' || value === null) return null;
+
+    const num = Number(value);
+
+    if (!Number.isFinite(num)) return null;
+
+    if (Math.abs(num) > 1_000_000_000) return 'range';
+
+    const decimalPart = value.toString().split('.')[1];
+    if (decimalPart && decimalPart.length > 6) return 'precision';
+
+    return num;
+}
+
 // TASK 3: Fix Rounding Logic
 // Centralized formatting logic for consistency
 const formatNum = (num) => {
@@ -1331,10 +1348,27 @@ calcs.forEach((c, index) => {
   };
 
   const update = (shouldSaveHistory = false) => {
-    const valA = parseFloat(inA.value.trim());
-    const valB = parseFloat(inB.value.trim());
+    const rawA = inA.value.trim();
+    const rawB = inB.value.trim();
     
-    if (!isNaN(valA) && !isNaN(valB)) {
+    let valA = parseSafeNumber(rawA);
+    let valB = parseSafeNumber(rawB);
+
+    // 1. Handle Range Errors
+    if (valA === 'range' || valB === 'range') {
+        res.textContent = "Input out of supported range";
+        res.className = 'result empty'; // Keep generic style, don't indicate success
+        explainBtn.style.display = 'none';
+        explainBox.classList.remove('visible');
+        return; 
+    }
+
+    // 2. Handle Precision
+    if (valA === 'precision') valA = Number(Number(rawA).toFixed(6));
+    if (valB === 'precision') valB = Number(Number(rawB).toFixed(6));
+    
+    // 3. Valid Calculation
+    if (valA !== null && valB !== null) {
       const resultText = c.fn(valA, valB);
       
       if (res.textContent !== resultText) {
