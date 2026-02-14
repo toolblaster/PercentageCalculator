@@ -1,281 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Privacy Policy for Percentage Calculator. We prioritize your privacy - no personal data is collected, stored, or shared when using our calculator tools.">
-<link rel="canonical" href="https://percentagecalculator.toolblaster.com/pages/privacy.html">
-<title>Privacy Policy - Percentage Calculator</title>
-
-<!-- FONTS: Inter -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
-<noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
-</noscript>
-
-<!-- BRANDING: Favicons -->
-<link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="48x48" href="../favicon/favicon-48x48.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-<link rel="manifest" href="../favicon/site.webmanifest">
-
-<style>
-  /* STEP 1: IMPORT SAME DESIGN TOKENS */
-  :root {
-    --bg-body: #f8fafc;
-    --bg-card: rgba(255, 255, 255, 0.9);
-    --text-main: #0f172a;
-    --text-muted: #334155;
-    --border: #e2e8f0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Percentage Calculator</title>
+    <meta name="description" content="We respect your privacy. No user data is stored, tracked, or shared. All calculations happen locally on your device.">
+    <meta name="robots" content="noindex, nofollow">
     
-    --primary: #4f46e5;
-    --primary-hover: #4338ca;
-    --primary-bg: #eef2ff;
-    --primary-light: #6366f1;
+    <!-- BRANDING: Favicons (Linked to root) -->
+    <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../favicon/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
     
-    --radius: 12px;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    <!-- FONTS: Inter (Optimized Loading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
 
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  }
-  
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  /* STEP 2: MATCH BODY BACKGROUND STYLE */
-  body { 
-    font-family: var(--font-sans); 
-    background: var(--bg-body); 
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.03) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.03) 0px, transparent 50%);
-    background-attachment: fixed;
-    color: var(--text-main); 
-    line-height: 1.6; 
-    font-size: 14px;
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
-  }
-
-  /* STEP 3: STANDARDIZE CONTAINER WIDTH */
-  .container { 
-    max-width: 1140px; 
-    margin: 0 auto; 
-    padding: 0 1rem; 
-  }
-
-  /* STEP 4: UPDATE HEADER STYLE (NON-STICKY) */
-  header { 
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 0.5rem 0;
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow-sm);
-    position: relative;
-    z-index: 10;
-  }
-
-  .header-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .brand-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-  }
-  
-  .brand-icon {
-    width: 26px;
-    height: 26px;
-    color: white;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    padding: 5px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.25);
-  }
-  
-  header h1 { 
-    font-size: 1.1rem;
-    font-weight: 800; 
-    letter-spacing: -0.02em;
-    margin: 0;
-    line-height: 1.1;
-    background: linear-gradient(to right, var(--text-main), #334155);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* STEP 5: WRAPPER STYLE (CARD) */
-  .section-card {
-    background: var(--bg-card);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(226, 232, 240, 0.8);
-    border-radius: var(--radius);
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-md);
-  }
-
-  /* STEP 6: ALIGN TYPOGRAPHY SCALE */
-  h1 { 
-    font-size: 1.5rem; 
-    font-weight: 800; 
-    margin-bottom: 1.5rem; 
-    color: var(--text-main);
-    text-align: center;
-  }
-  
-  h2 { 
-    font-size: 1.1rem; 
-    font-weight: 700; 
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: var(--text-main);
-  }
-  
-  p, li { 
-    font-size: 0.9rem; 
-    color: var(--text-muted); 
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-
-  ul {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-  }
-  
-  li {
-    margin-bottom: 0.5rem;
-  }
-
-  /* STEP 7: UPDATE LINKS TO MATCH PRODUCT STYLE */
-  a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
-  }
-  a:hover {
-    text-decoration: underline;
-    color: var(--primary-hover);
-  }
-
-  /* Back Button Style */
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-  }
-  .back-link svg {
-    margin-right: 4px;
-    width: 16px;
-    height: 16px;
-  }
-
-  /* STEP 8: UNIFY FOOTER STYLE */
-  footer { 
-    border-top: 1px solid var(--border); 
-    margin-top: auto; 
-    background: #fff;
-    padding: 2rem 0;
-  }
-  
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-  }
-  
-  .footer-links a {
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-  
-  footer p.copyright { 
-    text-align: center; 
-    font-size: 0.75rem; 
-    color: var(--text-muted); 
-    margin: 0;
-  }
-
-</style>
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
+
+<!-- V3: Top Ad Slot (CLS Safe - No Text) -->
+<div class="container">
+  <!-- LOCKED AD SPACE - PRESERVED: Added role="region" to generic div with aria-label -->
+  <div class="ad-slot top" role="region" aria-label="Advertisement"></div>
+</div>
 
 <header>
   <div class="container">
     <div class="header-top-row">
-      <a href="../index.html" class="brand-wrapper">
-        <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 4.5l-15 15m0 0h.01M19.5 4.5h.01M6 9a3 3 0 110-6 3 3 0 010 6zm12 12a3 3 0 110-6 3 3 0 010 6z" />
-        </svg>
-        <h1>Percentage Calculator</h1>
-      </a>
+      <div class="brand-wrapper">
+        <!-- 2-in-1 Logo: Icon + H1 Text -->
+        <a href="../" style="text-decoration: none; display: flex; align-items: center; gap: 0.6rem;">
+            <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 4.5l-15 15m0 0h.01M19.5 4.5h.01M6 9a3 3 0 110-6 3 3 0 010 6zm12 12a3 3 0 110-6 3 3 0 010 6z" />
+            </svg>
+            <h1>Percentage Calculator</h1>
+        </a>
+      </div>
     </div>
   </div>
 </header>
 
 <main>
-  <div class="container">
-    <a href="../index.html" class="back-link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-      </svg>
-      Back to Calculator
-    </a>
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="../">Home</a>
+            <span class="separator">/</span>
+            <span>Privacy Policy</span>
+        </div>
 
-    <!-- WRAPPED CONTENT IN SECTION-CARD, CONTENT RESTORED & PRESERVED -->
-    <div class="section-card">
-      <h1 style="text-align: center; margin-bottom: 0.5rem;">Privacy Policy</h1>
-      <p style="text-align: center; font-size: 0.8rem; font-style: italic; margin-bottom: 2rem;">Last Updated: October 26, 2023</p>
+        <div style="max-width: 800px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 1rem;">Privacy Policy</h2>
+            
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                <strong>Last Updated:</strong> January 2026
+            </p>
 
-      <h2>1. Introduction</h2>
-      <p>Welcome to Percentage Calculator ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience on our website. This Privacy Policy explains our practices regarding data collection and usage.</p>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                At <strong>Percentage Calculator</strong> (percentagecalculator.toolblaster.com), accessible from https://percentagecalculator.toolblaster.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Percentage Calculator and how we use it.
+            </p>
 
-      <h2>2. Data Collection</h2>
-      <p>We do not collect, store, or process any personal data from our users. Our percentage calculation tools run entirely in your browser (client-side), meaning the numbers you input never leave your device.</p>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at <a href="mailto:hello@toolblaster.com" class="text-link">hello@toolblaster.com</a>.
+            </p>
 
-      <h2>3. Local Storage</h2>
-      <p>To improve your experience, we use your browser's "Local Storage" to remember the last values you entered. This allows you to close the tab and return later without losing your work. This data resides solely on your device and is never transmitted to our servers.</p>
+            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">1. No Personal Data Collection</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                We operate with a strict "no-logs" policy regarding your calculation data. We do not collect, store, or transmit any of the numbers, formulas, or results you enter into our calculator. 
+            </p>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                All calculations are performed entirely <strong>client-side</strong>. This means the math happens directly in your web browser (using JavaScript) and the data never leaves your device to be processed on our servers.
+            </p>
 
-      <h2>4. Analytics</h2>
-      <p>We may use anonymous analytics tools (such as Google Analytics) to understand how visitors interact with our site. This helps us improve functionality and user experience. These tools may use cookies to collect non-personal information like browser type, device type, and page views.</p>
+            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Local Storage Usage</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                We utilize standard browser <strong>Local Storage</strong> technology to improve your user experience. This allows the tool to:
+            </p>
+            <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); margin-bottom: 1rem;">
+                <li style="margin-bottom: 0.5rem;">Remember your last inputs so you don't lose your work if you accidentally refresh the page.</li>
+                <li style="margin-bottom: 0.5rem;">Maintain a temporary "History" list of your recent calculations for your convenience.</li>
+            </ul>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                This data resides solely on your device. We have no access to it. You can clear this data at any time by clearing your browser cache or using the "Reset" button within the tool.
+            </p>
 
-      <h2>5. Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Log Files</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                Percentage Calculator follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this as a part of hosting services' analytics. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.
+            </p>
 
-      <h2>6. Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy, please contact us at hello@toolblaster.com.</p>
+            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Cookies and Web Beacons</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                Like any other website, Percentage Calculator uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
+            </p>
+
+            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Third-Party Privacy Policies</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                Percentage Calculator's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
+            </p>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.
+            </p>
+
+            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">6. Children's Information</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
+            </p>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                Percentage Calculator does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
+            </p>
+
+            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">7. Consent</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">
+                By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.
+            </p>
+
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center;">
+                <a href="../" class="text-link">← Back to Calculator</a>
+            </div>
+        </div>
     </div>
-  </div>
 </main>
 
 <footer>
   <div class="container">
-    <div class="footer-links">
-      <a href="../">Home</a>
-      <a href="about.html">About</a>
-      <a href="percentage-guide.html">Formulas</a>
+    <!-- Knowledge Strip -->
+    <section class="knowledge-strip">
+      <h2>Want to understand how percentage calculations work?</h2>
+      <p>
+        Learn percentage formulas for increase, decrease, difference,
+        reverse percentage, and step-by-step examples in our complete guide.
+      </p>
+      <a href="percentage-guide.html" class="text-link">
+        Learn Percentages – Complete Guide →
+      </a>
+    </section>
+  </div>
+
+  <div class="footer-bottom-section">
+    <div class="container">
+        <div class="footer-links">
+          <div style="margin-top: 0.5rem;">
+            <a href="about.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">About</a>
+            <a href="privacy.html" style="color: var(--text-muted); text-decoration: none; margin: 0 0.5rem;">Privacy</a>
+          </div>
+          <a href="percentage-guide.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8;">Learn percentage formulas & step-by-step explanations →</a>
+        </div>
+
+        <p class="copyright">&copy; 2026 percentagecalculator.<a href="https://toolblaster.com" style="color: inherit; text-decoration: underline;">Toolblaster.com</a> &middot; Free online Percentage calculation tools</p>
+        
+        <div class="footer-end-actions" style="margin-top: 1.5rem; text-align: center;">
+          <div class="evergreen-note">
+            This tool is intentionally simple and will remain free and unchanged.
+          </div>
+          <div class="trust-bar">
+            No login required &middot; Works offline &middot; No data is stored or tracked
+          </div>
+        </div>
     </div>
-    <p class="copyright">&copy; 2026 percentagecalculator.toolblaster.com</p>
   </div>
 </footer>
 
